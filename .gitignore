@@ -1,4 +1,7 @@
 .DS_Store
+lib/
+include/
+bin/
 *.pdf
 !fig/*.pdf
 *.log
