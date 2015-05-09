@@ -1,0 +1,53 @@
+\chapter{Objetivos y alcance}
+
+\section{Objetivos}
+
+La gestión de repositorios semánticos compatibles con el estándar OAI-PMH tiene como objetivo explotar la información almacenada en un repositorio de manera más eficiente, mediante consultas semánticas y facetadas avanzadas. Busca dar soporte a OAI-PMH para disponer de todo el contenido según dicta su estándar.
+
+Como caso práctico se propone añadir compatibilidad con OAI-PMH al sistema de gestión de grupos de investigación LabMan, para que pueda proveer de datos a clientes que trabajen con esta tecnología.
+
+Para dar sentido a esta funcionalidad, se pretende expandir labman con un cliente que se alimente con estos recursos para ofrecer servicios orientados a la búsqueda semántica y facetada.
+
+
+\section{Alcance}
+
+Atendiendo a las premisas señaladas anteriormente, las funcionalidades que deberá soportar este proyecto serán:
+
+\begin{itemize}
+	\item Un servidor capaz de conectarse al repositorio de LabMan y extraer la información actualizada, en forma de metadatos, sobre las publicaciones y sus autores correspondientes de acuerdo con el estándar Dublin Core, respondiendo a las peticiones HTTP de acuerdo con el protocolo OAI-PMH.
+	
+	\item Un cliente web capaz de realizar consultas semánticas y facetadas complejas y presentarlas intuitivamente a los usuarios, compuesto por formularios que se dispondrán de forma sencilla en primera instancia, para dar la posibilidad de realizar consultas rápidas y simples sin abrumar a los usuarios por la longitud del mismo. Pero, a su vez, han de permitir dar la posibilidad de expandir los campos con el fin de introducir datos más específicos para realizar consultas más elaboradas.
+
+	\item La plataforma estará diseñada de una manera intuitiva, para que así, personas con pocos conocimientos de la informática también la puedan usar sin ningún tipo de problema. Además ha de ser responsiva, es decir, su diseño se adaptará a distintos tamaños de pantallas como pueden ser las de un ordenador de sobremesa, un portátil, una tableta o un móvil, donde poder plasmar toda la información de una manera legible para los humanos.
+\end{itemize}
+
+El proyecto se centrará solamente en el repositorio de Labman, a las tablas relacionadas a las publicaciones (Autores, Tesis, Libros, Tags, etc.), la incorporación de los demás repositorios de DeustoTech quedan aplazados para futuras revisiones del proyecto una vez concluido este.
+
+\chapter{Producto final}
+
+El producto final se compone de dos sistemas diferentes:
+
+\section{Servidor OAI-PMH}
+
+El primero es un servidor de documentos XML en Dublín Core, capaz de responder a las peticiones HTML según el protocolo OAI-PMH. Será capaz de proveer información variada acerca de las publicaciones de los miembros que conforman Morelab en DeustoTech.
+
+Los datos que proporcionará serán:
+
+\begin{itemize}
+	\item Información sobre los autores.
+	\item Información sobre las tesis.
+	\item Información sobre los libros publicados.
+	\item Información sobre las revistas.
+\end{itemize}
+
+\section{Aplicación web}
+
+La página web será desarrollada con tecnologías como HMTL5, CSS3 y JavaScript que hoy en día está en auge y están adquiriendo más y más importancia.
+
+La información será plasmada en la web de modo que cualquier usuario pueda consultarla y filtrarla de forma esquematizada y ordenada.
+
+El objetivo de la aplicación web es poder explotar los datos suministrados por el servidor OAI-PMH, mediante formularios dinámicos, permitiendo realizar tanto búsquedas semánticas avanzadas como facetadas de los recursos facilitados tanto por el servidor de OAI-PMH, como los de SQL y SPARQL.
+
+Añadir que el diseño de la interfaz será resultado de un estudio de los distintas formas de disponer los elementos dentro de un formulario, manteniendo la armonía con los estilos implantados en el sistema actual de LabMan.
+
+Por último destacar, que el diseño de la página web será responsiva, es decir, su diseño se adaptará a distintos tamaños de pantallas como pueden ser las de un ordenador de sobremesa, un portátil, una tablet o un móvil. Además, el funcionamiento de la página deberá ser totalmente intuitiva para que gente con pocos conocimientos de la informática también la pueda usar sin ningún tipo de problema.
