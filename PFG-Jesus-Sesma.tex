@@ -3,6 +3,14 @@
 \usepackage{hologo} % Paquete no necesario. Borrar en la memoria final al sustituir el texto
 \usepackage{graphicx}
 \usepackage{eurosym}
+\usepackage{tabularx}
+\usepackage{array}
+
+\newlength{\Oldarrayrulewidth}
+\newcommand{\Cline}[2]{%
+  \noalign{\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+  \noalign{\global\setlength{\arrayrulewidth}{#1}}\cline{#2}%
+  \noalign{\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
 
 \hypersetup{
   pdfauthor={Jesus María Sesma Solance},
