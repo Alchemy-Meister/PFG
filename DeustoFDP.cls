@@ -47,7 +47,7 @@
 
 \fancypagestyle{phdthesis}{             % Redefinimos el estilo de p\'agina principal
   \fancyhf{}
-  \fancyhead[RO]{\itshape\MakeUppercase{Proyecto Fin de Grado}}
+  \fancyhead[RO]{\itshape\MakeUppercase{DEFINICI\'ON Y PLANIFICACIN DEL PROYECTO}}
   \fancyhead[LE]{\sffamily\itshape\thechapter. \leftmark}
   \fancyfoot[LE,RO]{\thepage}
   \renewcommand{\headrulewidth}{0pt}
