@@ -13,3 +13,6 @@
 *.bbl
 *.blg
 *.pyg
+*.glsdefs
+*.ist
+*.acn

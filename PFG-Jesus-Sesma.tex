@@ -1,6 +1,7 @@
 \documentclass{DeustoFDP}
 
 \usepackage{hologo} % Paquete no necesario. Borrar en la memoria final al sustituir el texto
+\usepackage[toc, acronym, nomain]{glossaries}
 
 \hypersetup{
   pdfauthor={Jesus María Sesma Solance},
@@ -8,8 +9,11 @@
 }
 
 \bibliography{bibliografia}
+\makeglossaries
 
 \begin{document}
+
+\input{content/11-acronimos}
 
 \frontmatter 
 \pagestyle{plain}
@@ -19,7 +23,7 @@
 % paginas esten correctamente numeradas.
 \begin{titlepage} 
   \newgeometry{left=0cm,right=0cm,bottom=0cm,top=0cm}
-  \includegraphics{fig/portada}
+  \includegraphics{fig/portada_rendered}
   \restoregeometry
 \end{titlepage}
 \cleardoublepage
@@ -41,11 +45,11 @@
 \input{content/7-plan-estructura-presupuesto}
 \input{content/8-conclusiones-futuro}
 \printbibliography[heading=bibintoc]
+\printglossary[type=\acronymtype, title=Acrónimos, toctitle=Acrónicos]
 
 \appendix
 
 \input{content/10-agradecimientos}
-\input{content/11-acronimos}
 \input{content/12-anexos}
 \input{content/13-otros}
 
