@@ -1,2 +1,15 @@
 \section{Introducción a SQL}
 
+Como su propio nombre indica, \acrfull{sql} es un lenguaje de programación, estandarizado por ISO y ANSI, diseñado para gestionar la información almacenada en las sistemas de gestión bases de datos relacionales, como PostgreSQL\cite{PostgreSQL}, MySQL\cite{MySQL}, SQLite\cite{SQLite}, entre otros, por medio de consultas estructuradas en inglés.
+
+Las consultas representan las operaciones más comunes y esenciales del lenguaje \acrshort{sql} para la recopilación de información dentro de una \acrshort{bd}. Estas consultas de realizan por medio de la sentencia ``SELECT''. Estas consultas \acrshort{sql} pueden ser complementadas por clausulas para realizar búsquedas específicas, entre las que hay que destacar la siguientes:
+
+\begin{itemize}
+	\item \textbf{FROM:} Indica de que tabla o tablas de debe extraerse la información.
+	\item \textbf{WHERE:} Sirve para delimitar las tuplas o filas de la tablas en las que se realiza la búsqueda. Si las filas no cumplen las condiciones expuestas en esta clausula, serán excluidas del resultado.
+	\item \textbf{ORDER BY:} Esta es la única forma para definir el criterio de ordenación los resultados en \acrshort{sql}, sin esta clausula el orden sería aleatorio.
+\end{itemize}
+
+\lstinputlisting[language=SQL, frame=single, label={lst:selectsql}, caption=Ejemplo de sentencia SELECT]{content/code/sql/select-example.sql}
+
+En esta consulta \acrshort{sql} (ver algoritmo \ref{lst:selectsql}) se solicitan todos los nombres y las ciudades de los clientes que residan en Suecia.
