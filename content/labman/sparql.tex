@@ -1,2 +1,11 @@
 \section{Introducción a SPARQL}
 
+\acrshort{sparql}\cite{SPARQL_language} es el acrónimo recursivo del inglés \acrlong{sparql} que hace referencia tanto a el lenguaje estandarizado por la \acrshort{rdf} \acrshort{dawg} de la \acrshort{w3c}\cite{W3C} para consultas a grafos \acrshort{rdf} como para el protocolo de invocación de consultas \acrshort{sparql} remotas.
+
+El lenguaje de consultas \acrshort{sparql} (actualmente en la versión 1.1), permite tanto buscar como manipular grafos \acrshort{rdf} disponibles en la web o bases de datos semánticas almacenados como tripletas, en otras palabras, define un lenguaje equivalente a \acrshort{sql} a excepción de que este se utiliza exclusivamente para bases de datos semánticas.
+
+Al igual que en \acrshort{sql} las consultas en \acrshort{sparql} constituyen las operaciones más comunes y esenciales del lenguaje. Su estructura es es muy similar a la ya vista en el algoritmo \ref{lst:selectsql}, haciendo uso de la misma sentencia ``SELECT''.
+
+\lstinputlisting[language=SQL, otherkeywords={PREFIX}, frame=single, label={lst:selectsparql}, caption=Ejemplo de sentencia SELECT en \acrshort{sparql}]{content/code/sparql/select-example.sparql}
+
+Esta consulta \acrshort{sparql} (ver algoritmo \ref{lst:selectsparql}) añade un nuevo elemento ``PREFIX'' a lo anteriormente visto en \acrshort{sql}, que tiene como función almacenar \acrshortpl{uri} para reducir la longitud de de las mismas a la hora de acceder a sus atributos. La consulta concreto busca en los sujetos ?planttype y los objetos ?name que estén relacionado con el predicativo plant:planttype y devuelve solo sus nombres.
