@@ -10,10 +10,10 @@
 
 El protocolo \acrshort{oaipmh} se basa en una arquitectura cliente-servidor en la que el cliente realiza las consultas por medio de transacciones \acrshort{http} GET o POST constituidas por un conjunto de opciones del tipo clave=valor y se devuelve un documentos \acrshort{xml} bajo al menos el estandar \acrfull{dc} según dicta la especificación de la implementación mínima del protocolo \acrshort{oaipmh} para los proveedores de información.\cite{OAIPMH_implementers}
 
-Como se ve en la figura \ref{fig:oaiflow} el cliente puede realizar seis peticiones al servidor en función del valor especificado en el `verb' de la consulta, las peticiones pueden ser:
+Como se ve en la figura \ref{fig:oaiflow}\cite{oai_implementation} el cliente puede realizar seis peticiones al servidor en función del valor especificado en el `verb' de la consulta, las peticiones pueden ser:
 
 \begin{itemize}
-	\item \textbf{Idenfity:} Envía información sobre el servidor así como el nombre del repositorio, \acrshort{url} base, email del administrador del servidor, etc.
+	\item \textbf{Idenfity:} Envía información sobre el servidor así como el nombre del repositorio, \acrshort{url} base, correo electrónico del administrador del servidor, etc.
 	\item \textbf{ListMetadataFormats:} Envía la lista de formatos en los que se encuentran disponibles los metadatos que al menos deben estar disponibles en \acrshort{dc}.
 	\item \textbf{ListSets:} Envía una lista con los términos opcionales creados por el servidor para facilitar la recuperación de metadatos selectiva de los registros, posibilitando que un cliente pueda solicitar los registros pertenecientes a una clase en concreto. Estos términos representan una clasificación de los recursos según varias entradas. Los sets pueden estar compuestos por listas simple o formar una jerarquía.
 	\item \textbf{ListIdentifiers: } Devuelve la cabecera de hasta un máximo de 100 registros por petición. Los identificadores pueden filtrarse por un rango entre dos fechas de creación o modificación o por un distintos `Sets' definidos por el servidor.
@@ -21,4 +21,11 @@ Como se ve en la figura \ref{fig:oaiflow} el cliente puede realizar seis peticio
 	\item \textbf{GetRecord: } Petición utilizada para devolver un registro en concreto (véase algoritmo \ref{lst:oaipmhgetrecord}, siendo necesario especificar el identificador del recurso solicitado y el formato bibliográfico en el que se desea que se devuelva.
 \end{itemize}
 
-\lstinputlisting[language=XML, frame=single, label={lst:oaipmhgetrecord}, caption=Ejemplo de petición GetRecord de \acrshort{oaipmh}\cite{oai_implementation}]{content/code/xml/get-record-example.xml}
+\lstinputlisting[language=XML, frame=single, label={lst:oaipmhgetrecord}, caption=Ejemplo de petición GetRecord de \acrshort{oaipmh}]{content/code/xml/get-record-example.xml}
+
+El \acrshort{xml} generado por el servidor presenta la siguiente estructura para la extracción de los recursos:
+
+\begin{itemize}
+	\item \textbf{Información sobre la transacción:} El comienzo del \acrshort{xml} siempre está compuesto por atributos smlns, smlns:xsi y xsi:schemaLocation que sirven para definir `namespace' y el esquema de \acrshort{oaipmh} del \acrshort{xml}.
+
+\end{itemize}

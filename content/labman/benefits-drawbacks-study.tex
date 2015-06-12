@@ -1,1 +1,61 @@
 \section{Fortalezas y debilidades de las tecnologías}
+
+Habiendo explicado 
+
+\subsection{OAI-PMH}
+
+\subsubsection{Fortalezas}
+
+El protocolo se basa en realizar peticiones HTTP por lo que no hay que configurar ningún puerto en concreto para hacerlo funcionar.
+
+Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
+
+Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar un petición GET o POST con uno de los seis verbos que establece el protocolo OAI-PMH, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
+
+\subsubsection{Debilidades}
+
+Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de denegación de servicios. Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas en segundo plano.
+
+El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los “Sets” definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de OAI-PMH.
+
+El rendimiento es dependiente de la implementación del servidor. El proveedor de datos puede recopilar la información de múltiples fuentes, pudiendo optar cualquier tipo de sistema de almacenamiento como ficheros XML, texto plano, NoSQL, Bases de datos relacionales, entre muchos otros. Esto implica que el rendimiento estará sujeto al tiempo de acceso y filtrado de la información y al tiempo de generación de la respuesta del servidor OAI-PMH en XML.
+
+\subsection{SQL}
+
+\subsubsection{Fortalezas}
+Alto rendimiento, las peticiones SQL pueden ser usadas para acceder a grandes volúmenes de información de la base de datos de manera rápida y eficiente.
+
+El lenguaje ha sido estandarizado por ANSI y por ISO, lo que hace posible que se pueda reutilizar el código SQL en distintas bases de datos teniendo que realizar modificaciones mínimas.
+
+Permite el almacenamiento de objetos en la base de datos, dado que los DBMS orientados a objetos son una extensión de las bases de datos relacionales.
+
+Es capaz de realizar consultas complejas, buscando por cada campo definido en las tablas, realizar filtros avanzados con inner queries, ejecutar todo funciones, y joins con otras tablas, lo que lo convierte en una herramienta idónea para la recolección de datos.
+
+\subsubsection{Debilidades}
+
+Aunque las bases de datos SQL se conforman a los estándares ANSI e ISO muchas de las bases de datos SQL implementan algunas de sus funcionalidades como extensiones propietarias para asegurar la permanencia de sus usuarios.
+
+Realizar consultas a una tabla es meramente intuitivo, pero a medida que se añaden condiciones, filtros, funciones, inner queries y joins con otras tablas la dificultad aumenta, haciendo un lenguaje difícil, para consultas avanzadas.
+
+\subsection{SPARQL}
+
+\subsubsection{Fortalezas}
+
+Alto soporte a consultas semiestructuradas.
+
+SPARQL es apropiado para realizar búsquedas en fuentes de información dispares en una sola consulta. Dado que la mayoría de los datos pueden mapearse a RDFs y estos representan toda la información como una colección de datos de relaciones binarias que pueden ser consultados y agrupados por medio de SPARQL.
+
+SPARQL ha sido diseñado para soportar consultas en un entorno web, en los que los nombres de los grafos se identifican mediante URIs, por otra parte es común que las implementaciones de SPARQL recojan la información de los grafos por medio peticiones HTTP GET sobre las URIs de los grafos.
+Existen herramientas que permiten el uso de SPARQL para consultar contenido que no está almacenado en RDF, tales como LDAPs, XML, SQL, entre otros.
+
+Así mismo la palabra clave de un grafo permite adquirir datos del lugar de origen de dicha información. Los grafos pueden ser usados para descubrir las URIs de grafos que contengan los datos que coincidan con dicha consulta en cuestión.
+
+\subsubsection{Debilidades}
+
+Por lo general, las consultas en SPARQL, de no ser cacheadas, son muy lentas.
+
+Al ser una tecnología joven, no son muchos los que hacen uso de esa tecnología, es por eso que aún no haya muchos repositorios de datos que puedan recolectarse por medio de consultas SPARQL comparado al basto despliegue de otras tecnologías como SQL o XPath\cite{XPath}.
+
+No da soporte a las consultas jerárquicas o transitivas. SPARQL no facilita realizar consultas que presenten relaciones transitivas o estructuras jerárquicas dentro de un grafo, algo que por el contrario si soporta XQuery con sus ``Axes''.
+
+Es una tecnología inmadura en la que se hace notar la ausencia de procesamiento explícito como el de XQuery o la optimización del ya veterano SQL.
