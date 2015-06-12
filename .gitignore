@@ -8,7 +8,6 @@
 *.lol
 *.lot
 *.out
-*.xml
 *.toc
 *.bbl
 *.blg
@@ -18,3 +17,4 @@
 *.acn
 *.acr
 *.alg
+PFG-Jesus-Sesma.run.xml
