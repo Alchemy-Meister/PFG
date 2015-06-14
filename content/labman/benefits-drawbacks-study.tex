@@ -19,7 +19,7 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 \begin{itemize}
 	\item Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de denegación de servicios. Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas en segundo plano.
 
-	\item El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los “Sets” definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de \acrshort{oaipmh}.
+	\item El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los ``sets'' definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de \acrshort{oaipmh}.
 
 	\item El rendimiento es dependiente de la implementación del servidor. El proveedor de datos puede recopilar la información de múltiples fuentes, pudiendo optar cualquier tipo de sistema de almacenamiento como ficheros \acrshort{xml}, texto plano, NoSQL\cite{NoSQL}, \acrlongpl{bd} relacionales, entre muchos otros. Esto implica que el rendimiento estará sujeto al tiempo de acceso, filtrado de la información y al tiempo de generación de la respuesta \acrshort{xml} del servidor \acrshort{oaipmh}.
 \end{itemize}
@@ -74,5 +74,10 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 	\item Es una tecnología inmadura en la que se hace notar la ausencia de procesamiento explícito como el de \acrshort{xquery} o la optimización del ya veterano \acrshort{sql}.
 \end{itemize}
 
-\sebsection{Conclusiones}
+\subsection{Conclusiones}
 
+\acrshort{sql} a es una tecnología extendida y asentada que ha demostrado ser eficiente capaz de gestionar grandes volúmenes de información en consultas centralizadas. Por otra parte \acrshort{oaipmh} además de fomentar el acceso a las publicaciones digitales, sirve como complemento a esta tecnología permitiendo recolectar información desde distintas fuentes para su adición a una \acrshort{bd}.
+
+Sin embargo, \acrshort{sparql}, va más allá permitiendo gestionar la información en múltiples \acrlongpl{bd} distribuidas en una única consulta, evitado la redundancia de datos, los potenciales quebraderos de cabeza de realizar \textit{joins} consecutivas y la necesidad de tener que disponer de toda la información en un único sistema.
+
+Es por ello que \acrshort{labman}, para mejorar el rendimiento, hace uso una base de datos relacional... TODO - Explicar como \acrshort{labman} gestiona la información. :s
