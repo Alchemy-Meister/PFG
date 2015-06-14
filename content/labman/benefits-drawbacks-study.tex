@@ -1,61 +1,78 @@
 \section{Fortalezas y debilidades de las tecnologías}
 
-Habiendo introducido anteriormente las tecnologías que dispondrá \acrshort{labman} tras la implantación para su exposición a través del portal web y/o accesible desde las \acrshortpl{api} que proporciona, es necesario realizar un estudio sobre las ventajas y desventajas de la nueva tecnología introducida al sistema respecto a las ya presentes y valorar como afectan al sistema.
+Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman} para su exposición a través del portal web y/o accesible desde las \acrshortpl{api} que proporciona, es necesario realizar un estudio sobre las ventajas y desventajas de la nueva tecnología introducida al sistema respecto a las ya presentes y valorar como afectan al sistema.
 
 \subsection{OAI-PMH}
 
 \subsubsection{Fortalezas}
 
-El protocolo se basa en realizar peticiones HTTP por lo que no hay que configurar ningún puerto en concreto para hacerlo funcionar.
+\begin{itemize}
+	\item El protocolo se basa en realizar peticiones \acrshort{http} por lo que no hay que configurar ningún puerto en concreto para hacerlo funcionar.
 
-Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
+	\item Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
 
-Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar un petición GET o POST con uno de los seis verbos que establece el protocolo OAI-PMH, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
+	\item Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar un petición GET o POST con uno de los seis verbos que establece el protocolo \acrshort{oaipmh}, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
+\end{itemize}
 
 \subsubsection{Debilidades}
 
-Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de denegación de servicios. Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas en segundo plano.
+\begin{itemize}
+	\item Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de denegación de servicios. Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas en segundo plano.
 
-El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los “Sets” definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de OAI-PMH.
+	\item El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los “Sets” definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de \acrshort{oaipmh}.
 
-El rendimiento es dependiente de la implementación del servidor. El proveedor de datos puede recopilar la información de múltiples fuentes, pudiendo optar cualquier tipo de sistema de almacenamiento como ficheros XML, texto plano, NoSQL, Bases de datos relacionales, entre muchos otros. Esto implica que el rendimiento estará sujeto al tiempo de acceso y filtrado de la información y al tiempo de generación de la respuesta del servidor OAI-PMH en XML.
+	\item El rendimiento es dependiente de la implementación del servidor. El proveedor de datos puede recopilar la información de múltiples fuentes, pudiendo optar cualquier tipo de sistema de almacenamiento como ficheros \acrshort{xml}, texto plano, NoSQL\cite{NoSQL}, \acrlongpl{bd} relacionales, entre muchos otros. Esto implica que el rendimiento estará sujeto al tiempo de acceso, filtrado de la información y al tiempo de generación de la respuesta \acrshort{xml} del servidor \acrshort{oaipmh}.
+\end{itemize}
 
 \subsection{SQL}
 
 \subsubsection{Fortalezas}
-Alto rendimiento, las peticiones SQL pueden ser usadas para acceder a grandes volúmenes de información de la base de datos de manera rápida y eficiente.
 
-El lenguaje ha sido estandarizado por ANSI y por ISO, lo que hace posible que se pueda reutilizar el código SQL en distintas bases de datos teniendo que realizar modificaciones mínimas.
+\begin{itemize}
+	\item Alto rendimiento, las peticiones \acrshort{sql} pueden ser usadas para acceder a grandes volúmenes de información de la base de datos de manera rápida y eficiente.
 
-Permite el almacenamiento de objetos en la base de datos, dado que los DBMS orientados a objetos son una extensión de las bases de datos relacionales.
+	\item El lenguaje ha sido estandarizado por \acrshort{ansi} y por \acrshort{iso}, lo que hace posible que se pueda reutilizar el código \acrshort{sql} en distintas bases de datos teniendo que realizar modificaciones mínimas.
 
-Es capaz de realizar consultas complejas, buscando por cada campo definido en las tablas, realizar filtros avanzados con inner queries, ejecutar todo funciones, y joins con otras tablas, lo que lo convierte en una herramienta idónea para la recolección de datos.
+	\item Permite el almacenamiento de objetos en la base de datos, dado que los \acrshort{dbms} orientados a objetos\cite{OODB} son una extensión de las bases de datos relacionales.
+
+	\item Es capaz de realizar consultas complejas, buscando por cada campo definido en las tablas, realizar filtros avanzados con \textit{inner queries}, ejecutar todo funciones y \textit{joins} con otras tablas, lo que lo convierte en una herramienta idónea para la recolección de datos.
+\end{itemize}
 
 \subsubsection{Debilidades}
 
-Aunque las bases de datos SQL se conforman a los estándares ANSI e ISO muchas de las bases de datos SQL implementan algunas de sus funcionalidades como extensiones propietarias para asegurar la permanencia de sus usuarios.
+\begin{itemize}
+	\item Aunque las bases de datos \acrshort{sql} se conforman a los estándares \acrshort{ansi} e \acrshort{iso} muchas de las bases de datos \acrshort{sql} implementan algunas de sus funcionalidades como extensiones propietarias para asegurar la permanencia de sus usuarios.
 
-Realizar consultas a una tabla es meramente intuitivo, pero a medida que se añaden condiciones, filtros, funciones, inner queries y joins con otras tablas la dificultad aumenta, haciendo un lenguaje difícil, para consultas avanzadas.
+	\item Realizar consultas a una tabla es meramente intuitivo, pero a medida que se añaden condiciones, filtros, funciones, \textit{inner queries} y \textit{joins} con otras tablas la dificultad aumenta, haciendo el lenguaje difícil, para consultas avanzadas.
+\end{itemize}
 
 \subsection{SPARQL}
 
 \subsubsection{Fortalezas}
 
-Alto soporte a consultas semiestructuradas.
+\begin{itemize}
+	\item Alto soporte a consultas semiestructuradas, como por ejemplo a datos con estructuras impredecibles o poco fiables.
 
-SPARQL es apropiado para realizar búsquedas en fuentes de información dispares en una sola consulta. Dado que la mayoría de los datos pueden mapearse a RDFs y estos representan toda la información como una colección de datos de relaciones binarias que pueden ser consultados y agrupados por medio de SPARQL.
+	\item \acrshort{sparql} realiza consultas a grafos \acrshortpl{rdf} y estos están compuestos por varias tripletas que expresan relaciones binarias entre los recursos. Esta característica permite a las consultas \acrshort{sparql} realizar \textit{joins} implícitas entre los distintos recursos, convirtiendolo en un lenguaje apropiado para realizar búsquedas en fuentes de información dispares en una sola consulta.
 
-SPARQL ha sido diseñado para soportar consultas en un entorno web, en los que los nombres de los grafos se identifican mediante URIs, por otra parte es común que las implementaciones de SPARQL recojan la información de los grafos por medio peticiones HTTP GET sobre las URIs de los grafos.
-Existen herramientas que permiten el uso de SPARQL para consultar contenido que no está almacenado en RDF, tales como LDAPs, XML, SQL, entre otros.
+	\item \acrshort{sparql} ha sido diseñado para soportar consultas en un entorno web, en los que los nombres de los grafos se identifican mediante URIs, por otra parte es común que las implementaciones de \acrshort{sparql} recojan la información de los grafos por medio peticiones \acrshort{http} GET sobre las \acrshortpl{uri} de los grafos.
 
-Así mismo la palabra clave de un grafo permite adquirir datos del lugar de origen de dicha información. Los grafos pueden ser usados para descubrir las URIs de grafos que contengan los datos que coincidan con dicha consulta en cuestión.
+	\item Existen herramientas que permiten el uso de \acrshort{sparql} para consultar contenido que no está almacenado en RDF, tales como \acrshort{ldap}, \acrshort{xml}, \acrshort{sql}, entre otros. Entre estas herramientas caben destacar el servidor D2R\cite{D2R_Server}, el Adaptador Jena para bases de datos Oracle\cite{JENA_ORACLE}, SquirrelRDF\cite{SquirrelRDF}, etc.\cite{MAPING_SPARQL} que ofrecen servicios de mapeo de \acrfull{s2s}.
+
+	\item Así mismo la palabra clave de un grafo permite adquirir datos del lugar de origen de dicha información. Los grafos pueden ser usados para descubrir las \acrshortpl{uri} de grafos que contengan los datos que coincidan con dicha consulta en cuestión.
+\end{itemize}
 
 \subsubsection{Debilidades}
 
-Por lo general, las consultas en SPARQL, de no ser cacheadas, son muy lentas.
+\begin{itemize}
+	\item Por lo general, las consultas en \acrshort{sparql}, de no usar estrategias el cacheo de consultas\cite{SPARQL_Performance}, son muy lentas.
 
-Al ser una tecnología joven, no son muchos los que hacen uso de esa tecnología, es por eso que aún no haya muchos repositorios de datos que puedan recolectarse por medio de consultas SPARQL comparado al basto despliegue de otras tecnologías como SQL o XPath\cite{XPath}.
+	\item Al ser una tecnología joven, no son muchos los que hacen uso de esa tecnología, es por eso que aún no haya muchos repositorios de datos que puedan recolectarse por medio de consultas \acrshort{sparql} comparado al basto despliegue de otras tecnologías veteranas como \acrshort{sql} o \acrshort{xpath}\cite{XPath}.
 
-No da soporte a las consultas jerárquicas o transitivas. SPARQL no facilita realizar consultas que presenten relaciones transitivas o estructuras jerárquicas dentro de un grafo, algo que por el contrario si soporta XQuery con sus ``Axes''.
+	\item No da soporte a las consultas jerárquicas o transitivas. \acrshort{sparql} no facilita realizar consultas que presenten relaciones transitivas o estructuras jerárquicas dentro de un grafo, algo que por el contrario si soporta \acrshort{xquery} mediante los \textit{Axis}, capaz de relacionar un nodo en cuestión, con su padre y sus hijos\cite{XQueryAxes}.
 
-Es una tecnología inmadura en la que se hace notar la ausencia de procesamiento explícito como el de XQuery o la optimización del ya veterano SQL.
+	\item Es una tecnología inmadura en la que se hace notar la ausencia de procesamiento explícito como el de \acrshort{xquery} o la optimización del ya veterano \acrshort{sql}.
+\end{itemize}
+
+\sebsection{Conclusiones}
+
