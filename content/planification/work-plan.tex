@@ -4,22 +4,58 @@ En la tabla \ref{tab:work_plan} se especifica el plan de trabajo planificado.
 
 \begin{table}[htp]
 	\centering
-	\caption{Presupuesto de Recursos Humanos}\label{tab:work_plan}
-	\begin{tabular}{ccccccc}
+	\caption{Plan de trabajo}\label{tab:work_plan}
+	\begin{tabular}{cccccc}
 		\toprule
-    	\textbf{Nombre de tarea} & \emph{Duración} & \emph{Comienzo} & \emph{Fin} & \emph{Nombres de los recursos} & \emph{Predecesoras} & \emph{Trabajo}\\
+    	\textbf{Tarea} & \emph{Duración} & \emph{Comienzo} & \emph{Fin} & \emph{Predecesoras} & \emph{Trabajo}\\
     	\midrule
-    	Análisis de herramientas provistas por \acrshort{oai} para implementar el repositorio\\
-    	Análisis de herramientas para desarrollo web\\
-    	Análisis de herramientas semánticas\\
-    	Desarrollo del proveedor\\
-    	Diseño del modelo relacional de datos de \acrshort{oaipmh}\\
-    	Implementación del servidor \acrshort{oaipmh}\\
-    	Desarrollo del front-end del sistema\\
-    	Pruebas del servidor \acrshort{oaipmh}\\
-    	Pruebas de la plataforma web\\
-    	Publicación de la aplicación en el portal web de MORElab\\
-    	Desplegar el servidor \acrshort{oaipmh}\\
+    	T1 & 3 días & 02/03/15 & 04/03/15 & - & 12 horas\\
+    	T2 & 3 días & 05/03/15 & 09/03/15 & T1 & 12 horas\\
+    	T3 & 3 días & 10/03/15 & 12/03/15 & T2 & 12 horas\\
+    	T4 & 2 días & 13/03/15 & 16/03/15 & T3 & 8 horas\\
+    	T5 & 10 días & 17/03/15 & 30/03/15 & T4 & 40 horas\\
+    	T6 & 24 días & 31/03/15 & 01/05/15 & T5 & 96 horas\\
+    	T7 & 24 días & 04/05/15 & 04/06/15 & T3 & 96 horas\\
+    	T8 & 3 días & 05/06/15 & 09/06/15 & T6;T7 & 12 horas\\
+    	T9 & 3 días & 10/06/15 & 12/06/15 & T6;T7 & 12 horas\\
+    	T10 & 1 día & 15/06/15 & 15/06/015 & T8;T9 & 4 horas\\
+    	T11 & 1 día & 16/06/15 & 16/06/15 & T10 & 4 horas\\
     	\bottomrule
+    \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+A continuación, en la tabla \ref{tab:recursos} se especifica los recursos, las horas de trabajo de y la proporción de la participación en cada una de las tareas.
+
+\begin{table}[htp]
+	\centering
+	\caption{Recursos de las tareas}\label{tab:recursos}
+	\begin{tabular}{cccc}
+		\toprule
+		\textbf{Tarea} & \emph{Recurso} & \emph{Horas} & \emph{Proporción}\\
+		T1 & Jefe de Proyecto & 1,75 & 14,58\%\\
+		T1 & Programador & 5,35 & 44,58\%\\
+		T1 & Administrador de \acrshort{bd} & 4,9 & 40,84\%\\
+		T2 & Jefe de proyecto & 2,15 & 17,92\%\\
+		T2 & Programador & 5,15 & 42,92\%\\
+		T2 & Diseñador & 4,70 & 39,16\%\\
+		T3 & Jefe de proyecto & 2,15 & 17.92\%\\
+		T3 & Programador & 5,15 & 42,92\%\\
+		T3 & Experto en web semántica & 4,70 & 39,16\%\\
+		T4 & Administrador de \acrshort{bd} & 4 & 50\%\\
+		T4 & Programador & 4 & 50\%\\
+		T5 & Administrador de \acrshort{bd} & 17,15 & 42,87\%\\
+		T5 & Programador & 22,85 & 57,13\%\\
+		T6 & Administrador de \acrshort{bd} & 38 & 39,58\%\\
+		T6 & Programador & 58 & 60.42\%\\
+		T7 & Programador & 53 & 55,2\%\\
+		T7 & Diseñador & 21,5 & 22,4\%\\
+		T7 & Experto en web semántica & 21,5 & 22,4\%\\
+		T8 & Programador & 12 & 100\%\\
+		T9 & Programador & 12 & 100\%\\
+		T10 & Programador & 4 & 100\%\\
+		T11 & Programador & 4 & 100\%\\
+		\bottomrule
     \end{tabular}
 \end{table}
