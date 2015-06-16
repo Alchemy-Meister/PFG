@@ -26,13 +26,27 @@ Se ha escogido MOAI Server frete a las alternativas facilitadas por la misma com
 
 \section{OAI-PMH validator}
 
-TODO
+\acrshort{oaipmh} validator\cite{oaipmh_validator} es una página web que permite validar el \acrshort{xml} generado por proveedores de datos de \acrshort{oaipmh} en desarrollo y comprobar si existe algún error en la estructura de la petición y si además realmente cumple con el estándar respetando el esquema \acrshort{oaipmh} y el formato bibliográfico \acrshort{dc}.
+
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[scale=0.5]{fig/oaipmh_validator_logo}
 	\caption{Logotipo de \acrshort{oaipmh} validator}
 \end{figure}
+
+La aplicación web permite validar como descargar la petición resultante a partir de las \acrshortpl{url} de servidores públicos de forma gratuita, permitiendo realizar cinco de las seis operaciones que establece el protocolo \acrshort{oaipmh}. Además facilita la validación directa de fuentes \acrshort{xml} generados por servidores que aún están en pruebas y no son públicos también de forma gratuita. A modo de aclaración, en la figura \ref{fig:oai_validator} se muestra un ejemplo de una validación del comando \textit{ListMetadataFormats} mediante una consulta POST a el repositorio \url{https://dspace.lib.uom.gr/dspace-oai/request}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.25]{fig/oaipmh_validator_example}
+	\caption{Ejemplo de validación de una consulta en \acrshort{oaipmh} validator}
+	\label{fig:oai_validator}
+\end{figure}
+
+\subsection{Razón de uso}
+
+Se ha utilizado esta aplicación web frente a los distintos validadores existentes como Oval\cite{Oval}, principalmente por que ha permitido comprobar la generación de los \acrshortpl{xml} generados por el servidor a partir de los documentos generados por el servidor en la etapa de desarrollo en el que el servidor no era público y por tanto no disponía de una \acrshort{url} a la que hacer referencia para realizar dichas comprobaciones.
 
 \section{SQLAlchemy}
 
