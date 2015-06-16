@@ -6,6 +6,12 @@ En esta sección se presentan las diferentes tecnologías que se han utilizado p
 
 MOAI\cite{MOAI} es una plataforma capaz de recolectar información de diversas fuentes y publicarlas mediante el protocolo \acrshort{oaipmh} desarrollado por Infrae\cite{Infrae} con el fin de satisfacer las necesidades de las instituciones académicas que trabajan con metadatos relacionales y ficheros de información.
 
+\begin{figure}[!htp]
+	\centering
+	\includegraphics[scale=0.8]{fig/moai_logo}
+	\caption{Logotipo de MOAI}\label{fig:moai_logo}
+\end{figure}
+
 Basado en un servidor \acrshort{http} Apache\cite{HTTPApache} e implementado en Python, MOAI incluye todas las funciones básicas como proveedor de datos del protocolo \acrshort{oaipmh}, indispensables para este proyecto. Por otra parte, permite tanto la extracción la información de documentos \acrshort{xml} como recolectarla de diversos servidores de información tales como Fedora Commons\cite{Fedora}, EPrints\cite{EPrints} o DSpace\cite{DSpace} y almacenar la información cosechada en una base de datos SQLite\cite{SQLite} por defecto.
 
 \subsection{Razón de uso}
@@ -14,7 +20,7 @@ Se ha escogido MOAI Server frete a las alternativas facilitadas por la misma com
 
 \begin{itemize}
 	\item Su accesible documentación para el desarrollo y extensión del servidor.
-	\item Capacidad para sobrescribir el esquema de la base de datos SQLite usado para la extracción de datos del servidor Apache por defecto y sustituirlo por la \acrshort{bd} PostgreSQL utilizada actualmente por LabMan.
+	\item Capacidad para sobrescribir el esquema de la base de datos SQLite usado para la extracción de datos del servidor Apache por defecto y sustituirlo por la \acrshort{bd} PostgreSQL utilizada actualmente por LabMan, evitando replicar los datos.
 	\item Implementado en una tecnología conocida, lo que reduce el tiempo de adaptación a la capa de datos.
 \end{itemize}
 
