@@ -50,13 +50,27 @@ Se ha utilizado esta aplicación web frente a los distintos validadores existent
 
 \section{SQLAlchemy}
 
-TODO
+SQLAlchemy\cite{SQLAlchemy} consiste tanto en \acrfull{orm} como en un juego de herramientas \acrshort{sql} para el lenguaje de programación Python. Como los propios desarrolladores definen ``SQLAlchemy ofrece una \textit{suite} completa de patrones de persistencia, diseñada para una acceso eficiente y de alto rendimiento a la \acrlong{bd}, adaptado a lenguaje sencillo como lo es Python''
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[scale=0.5]{fig/sqla_logo}
 	\caption{Logotipo de SQLAlchemy}
 \end{figure}
+
+\subsection{Razón de uso}
+
+Se ha utilizado esta \acrshort{api} frente a otras soluciones, como puede ser el \acrshort{orm} de Django, principalmente por las siguientes razones:
+
+\begin{itemize}
+	\item Ofrece un nivel de abstracción mayor manipulando las tablas de la \acrshort{bd} como si de objetos de Python se tratasen.
+	\item Permite escoger el grado de abstracción deseado, pudiendo escoger entre las herramientas \textit{core}, para la manipulación de tablas, o del \acrshort{orm} para gestionar el propio modelo de la \acrshort{bd} como objetos.
+	\item Es uno de los \acrshortpl{orm} más usados, utilizado por organizaciones como Mozilla\cite{Mozilla} o Reddit\cite{Reddit}.
+	\item Ofrece una documentación detallada tanto para el uso de las herramientas \textit{core} como para aquellas relacionadas con el \acrshort{orm} en sí. Además debido a ser una de las herramientas más usadas dispone de una gran comunidad que está dispuesta a ayudar a resolver cualquier problema.
+	\item Soporta desde Python 2.5 hasta las últimas versiones 3.x del mismo.
+	\item SQLAlchemy incluye dialectos como SQLite, PostgreSQL, MySQL, Oracle, MS-SQL, Firebird, Sybase y muchas otras por medio de extensiones, por lo que muchas de las clases generadas con esta herramienta pueden ser reutilizadas en caso de migración a una de estas \acrshort{bd}.
+	\item Estaba integrado como una dependencia por el servidor de MOAI por evitaba los quebraderos de cabeza de instalar otros \acrshortpl{orm}
+\end{itemize}
 
 \section{Django}
 
