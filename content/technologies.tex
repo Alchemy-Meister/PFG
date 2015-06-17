@@ -131,7 +131,7 @@ Además, para complementar a Bootstrap se han utilizado las siguientes extension
 
 \subsection{Bootstrap-select}
 
-Bootstrap-select\cite{BootstrapSelect} extensión añaden el estilo característico de Bootstrap las etiquetas \acrshort{html} \textit{select}, sobrescribiendo el estilo dependiente del sistema operativo que disponen por defecto. 
+Bootstrap-select\cite{BootstrapSelect} es una extensión que añade el estilo característico de Bootstrap las etiquetas \acrshort{html} \textit{select}, sobrescribiendo el estilo dependiente del sistema operativo que disponen por defecto. 
 
 Este \textit{plugin} no solo altera el aspecto visual del componente de selección, sino que, por otra parte añade la posibilidad disponer los elementos en agrupaciones, añadir validaciones como un máximo y mínimo de elementos seleccionados y facilitar la modificación del componente mediante \acrshort{js}.
 
@@ -148,7 +148,26 @@ En la figura \ref{fig:bootstrap-select} puede observarse el cambio visual que su
 
 \subsection{Bootstrap 3 Datepicker}
 
-TODO
+Bootstrap 3 Datepicker\cite{BootstrapDatepicker} es una extensión que combina varios elementos de Bootstrap y le añade la funcionabilidad de un \textit{input date} nativo de \acrshort{html}5 manteniendo así la armonía estética característica de Bootstrap.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.25]{fig/bootstrap_datepicker}
+	\caption{Cambio visual producido Bootstrap 3 Datepicker}
+	\label{fig:bootstrap-datepicker}
+\end{figure}
+
+Además de otorgar un cambio visual, tal y como puede observarse en la figura \ref{fig:bootstrap-datepicker}, esta \acrshort{api} aporta facilidades para la manipulación de los atributos de este componente, así como la gestión de eventos.
 
 \subsection{Razón de uso}
 
+Se ha utilizado este \textit{framework} para el diseño del \textit{front-end} frente a otras posibles soluciones, como puede Skeleton\cite{Skeleton} por las siguientes razones:
+
+\begin{itemize}
+	\item Aumenta la velocidad del desarrollo. Al facilitar el diseño de muchos de los componentes \acrshort{html} para formularios, tipográficas, etc. el desarrollador puede desentenderse de apartado artístico y dedicarse a la lógica de la aplicación web.
+	\item A partir de la versión 2.0 de Bootstrap ofrece soporte responsivo, es decir, la capacidad para adaptarse a múltiples dispositivos, como pueden ser tabletas, equipos de sobremesa, dispositivos móviles, teniendo que desarrollar una única vez el apartado gráfico.
+	\item El soporte, Bootstrap a acumulado tras de sí una gran comunidad que está dispuesta a solucionar cualquier problema que pueda surgir durante el desarrollo de interfaces gráficas.
+	\item Comunidad de desarrolladores artísticos, Bootstrap dispone miles de artistas que diseñan plantillas para páginas web gratuitas pudiendo ser modificadas a las necesidades del producto en desarrollo.
+	\item Dispone de un sistema de rejillas para la disposición de elementos, que facilita la disposición de los elementos en pantalla y que a su vez se adapta a las pantallas de los dispositivos, pudiendo evitar los quebraderos de cabeza que supone modificar \acrshort{css} y añadir \textit{media queries} para obtener el mismo resultado.
+	\item Mayormente se ha usado está tecnología dado que \acrshort{labman} estaba desarrollado en esta y era requisito indispensable mantener el \textit{look and feel} de la aplicación en armonía.
+\end{itemize}
