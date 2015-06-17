@@ -1,5 +1,7 @@
 \chapter{Tecnologías utilizadas}
 
+\section{Visión general}
+
 En esta sección se presentan las diferentes tecnologías que se han utilizado para el desarrollo del proyecto. Las principales tecnologías usado son las siguientes:
 
 \section{Servidor MOAI}
@@ -84,6 +86,8 @@ Django es un \textit{framework open-source} para el desarrollo de aplicaciones w
 
 \subsection{Razón de uso}
 
+Se ha utilizado este entorno de desarrollo frente a otra soluciones, como puede ser \acrfull{ror}\cite{RoR} o más modernas como Express\cite{Express} por las siguientes razones:
+
 \begin{itemize}
 	\item Es usado por grandes páginas como Mozilla, The Washington Times\cite{TWT} o Bitbucket\cite{Bitbucket}.
 	\item Es \acrshort{orm} de Django es una herramienta para la gestión de las \acrlongpl{bd} extremadamente potente, además de ser es una de las más usadas en la comunidad de Python.
@@ -91,9 +95,9 @@ Django es un \textit{framework open-source} para el desarrollo de aplicaciones w
 	\item Principalmente por que \acrshort{labman} está desarrollado en esta tecnología y para expandirla se ha tenido que trabajar con ella para no desechar lo que ya estaba hecho.
 \end{itemize}
 
-\section{JQuery}
+\section{jQuery}
 
-TODO
+jQuery\cite{jQuery} es una librería multiplataforma gratuita de \acrfull{js} diseñada para simplificar el desarrollo de la parte cliente. La sintaxis de jQuery está pensada para facilitar la navegación por el árbol de elementos del \acrfull{dom}, proporcionando funciones para la manipulación de los mismos. El objetivo de jQuery es poder realizar todas las operaciones que se podría realizar con \acrshort{js} teniendo que escribir mucho menos código para conseguirlo.
 
 \begin{figure}[!htbp]
 	\centering
@@ -101,9 +105,19 @@ TODO
 	\caption{Logotipo de JQuery}
 \end{figure}
 
+\subsection{Razón de uso}
+
+Se ha utilizado esta \acrshort{api} de \acrshort{js} frente a otras posibles soluciones, como puede Prototype\cite{Prototype} por las siguientes razones:
+
+\begin{itemize}
+	\item jQuery es una tecnología intuitiva, fácil de aprender que simplifica el código además del tiempo de desarrollo de la aplicación.
+	\item Tiene una gran comunidad por detrás que crea infinitos tutoriales para ayudar a los desarrolladores novatos a dar sus primeros pasos.
+	\item jQuery es una librería multiplataforma y compatible con todos los navegadores web que se encarga de solucionar los problemas de \acrshort{js} presentes en las primeras versiones de Firefox\cite{Firefox} o \acrfull{ie}\cite{IE}, permitiendo escribir el código una sola vez para todos los navegadores.
+\end{itemize}
+
 \section{Bootstrap}
 
-TODO
+Bootstrap en un \textit{framework} gratuito para la creación de aplicaciones web que contiene unas plantillas, basadas en \acrshort{html} y \acrshort{css}, para formularios, botones, navegación y muchos otros tipos de componentes de la interfaz gráfica, así como extensiones \acrshort{js}. El objetivo de Bootstrap es facilitar el desarrollo web ofreciendo un aspecto visual atractivo tener que tener nociones de diseño gráfico.
 
 \begin{figure}[!htbp]
 	\centering
@@ -111,10 +125,30 @@ TODO
 	\caption{Logotipo de Bootstrap}
 \end{figure}
 
+Fue creado por dos desarrolladores en Twitter para fomentar la consistencia entre las herramientas internas y fue publicado como código abierto más adelante, convirtiéndose en uno de los \textit{framework} de desarrollo web más destacados.
+
+Además, para complementar a Bootstrap se han utilizado las siguientes extensiones para resolver ciertos problemas en la consistencia del \textit{look and feel} de varios componentes y añadir nuevas funciones:
+
 \subsection{Bootstrap-select}
 
-TODO
+Bootstrap-select\cite{BootstrapSelect} extensión añaden el estilo característico de Bootstrap las etiquetas \acrshort{html} \textit{select}, sobrescribiendo el estilo dependiente del sistema operativo que disponen por defecto. 
+
+Este \textit{plugin} no solo altera el aspecto visual del componente de selección, sino que, por otra parte añade la posibilidad disponer los elementos en agrupaciones, añadir validaciones como un máximo y mínimo de elementos seleccionados y facilitar la modificación del componente mediante \acrshort{js}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.45]{fig/bootstrap_select}
+	\caption{Cambio visual producido por Bootstrap-select}
+	\label{fig:bootstrap-select}
+\end{figure}
+
+\FloatBarrier
+
+En la figura \ref{fig:bootstrap-select} puede observarse el cambio visual que sufre el componente \text{select} renderizado bajo Safari\cite{Safari}.
 
 \subsection{Bootstrap 3 Datepicker}
 
 TODO
+
+\subsection{Razón de uso}
+
