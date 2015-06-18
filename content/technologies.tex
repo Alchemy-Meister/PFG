@@ -14,7 +14,7 @@ MOAI\cite{MOAI} es una plataforma capaz de recolectar información de diversas f
 	\caption{Logotipo de MOAI}
 \end{figure}
 
-Basado en un servidor \acrshort{http} Apache\cite{HTTPApache} e implementado en Python, MOAI incluye todas las funciones básicas como proveedor de datos del protocolo \acrshort{oaipmh}, indispensables para este proyecto. Por otra parte, permite tanto la extracción la información de documentos \acrshort{xml} como recolectarla de diversos servidores de información tales como Fedora Commons\cite{Fedora}, EPrints\cite{EPrints} o DSpace\cite{DSpace} y almacenar la información cosechada en una base de datos SQLite\cite{SQLite} por defecto.
+Basado en un servidor \acrshort{http} Apache\cite{HTTPApache} e implementado en Python, MOAI incluye todas las funciones básicas como proveedor de datos del protocolo \acrshort{oaipmh}, indispensables para este proyecto. Por otra parte, permite tanto la extracción de la información de documentos \acrshort{xml} como recolectarla de diversos servidores de información tales como Fedora Commons\cite{Fedora}, EPrints\cite{EPrints} o DSpace\cite{DSpace} y almacenar la información cosechada en una base de datos SQLite\cite{SQLite} por defecto.
 
 \subsection{Razón de uso}
 
@@ -48,7 +48,7 @@ La aplicación web permite validar como descargar la petición resultante a part
 
 \subsection{Razón de uso}
 
-Se ha utilizado esta aplicación web frente a los distintos validadores existentes como Oval\cite{Oval}, principalmente por que ha permitido comprobar la generación de los \acrshortpl{xml} generados por el servidor a partir de los documentos generados por el servidor en la etapa de desarrollo en el que el servidor no era público y por tanto no disponía de una \acrshort{url} a la que hacer referencia para realizar dichas comprobaciones.
+Se ha utilizado esta aplicación web frente a los distintos validadores existentes como Oval\cite{Oval}, principalmente por que ha permitido comprobar la velidez de los \acrshortpl{xml} generados por el proveedor de información, en la etapa de desarrollo en el que el servidor no era público y por tanto no disponía de una \acrshort{url} a la que hacer referencia para realizar dichas comprobaciones.
 
 \section{SQLAlchemy}
 
@@ -70,8 +70,8 @@ Se ha utilizado esta \acrshort{api} frente a otras soluciones, como puede ser el
 	\item Es uno de los \acrshortpl{orm} más usados, utilizado por organizaciones como Mozilla\cite{Mozilla} o Reddit\cite{Reddit}.
 	\item Ofrece una documentación detallada tanto para el uso de las herramientas \textit{core} como para aquellas relacionadas con el \acrshort{orm} en sí. Además debido a ser una de las herramientas más usadas dispone de una gran comunidad que está dispuesta a ayudar a resolver cualquier problema.
 	\item Soporta desde Python 2.5 hasta las últimas versiones 3.x del mismo.
-	\item SQLAlchemy incluye dialectos para \acrlongpl{bd} como SQLite, PostgreSQL, MySQL, Oracle\cite{Oracle}, MS-SQL\cite{MSSQL}, Firebird\cite{Firebird} y muchas otras por medio de extensiones, por lo que muchas de las clases generadas con esta herramienta pueden ser reutilizadas en caso de migración a una de estas \acrshort{bd}.
-	\item Estaba integrado como una dependencia por el servidor de MOAI por evitaba los quebraderos de cabeza de instalar otros \acrshortpl{orm}
+	\item SQLAlchemy incluye dialectos para \acrlongpl{bd} como SQLite, PostgreSQL, MySQL, Oracle\cite{Oracle}, MS-SQL\cite{MSSQL}, Firebird\cite{Firebird} y muchas otras por medio de extensiones, por lo que las clases generadas con esta herramienta pueden ser reutilizadas en caso de migración a una de estas \acrshort{bd}.
+	\item Estaba integrado como una dependencia por el servidor de MOAI lo que evitaba los quebraderos de cabeza de tener que instalar otros \acrshortpl{orm}
 \end{itemize}
 
 \section{Django}
@@ -86,13 +86,13 @@ Django es un \textit{framework open-source} para el desarrollo de aplicaciones w
 
 \subsection{Razón de uso}
 
-Se ha utilizado este entorno de desarrollo frente a otra soluciones, como puede ser \acrfull{ror}\cite{RoR} o más modernas como Express\cite{Express} por las siguientes razones:
+Se ha utilizado este entorno de desarrollo frente a otras soluciones, como puede ser \acrfull{ror}\cite{RoR} o más modernas como Express\cite{Express} por las siguientes razones:
 
 \begin{itemize}
 	\item Es usado por grandes páginas como Mozilla, The Washington Times\cite{TWT} o Bitbucket\cite{Bitbucket}.
-	\item Es \acrshort{orm} de Django es una herramienta para la gestión de las \acrlongpl{bd} extremadamente potente, además de ser es una de las más usadas en la comunidad de Python.
+	\item El \acrshort{orm} de Django es una herramienta para la gestión de las \acrlongpl{bd} extremadamente potente, además de ser es una de las más usadas en la comunidad de Python.
 	\item La interfaz de administración es muy potente y personalizable por lo que ahorra mucho tiempo de desarrollo.
-	\item Principalmente por que \acrshort{labman} está desarrollado en esta tecnología y para expandirla se ha tenido que trabajar con ella para no desechar lo que ya estaba hecho.
+	\item Principalmente por que \acrshort{labman} está desarrollado en esta tecnología y para extenderla se ha tenido que trabajar con ella para no desechar lo que ya estaba hecho.
 \end{itemize}
 
 \section{jQuery}
@@ -117,7 +117,7 @@ Se ha utilizado esta \acrshort{api} de \acrshort{js} frente a otras posibles sol
 
 \section{Bootstrap}
 
-Bootstrap en un \textit{framework} gratuito para la creación de aplicaciones web que contiene unas plantillas, basadas en \acrshort{html} y \acrshort{css}, para formularios, botones, navegación y muchos otros tipos de componentes de la interfaz gráfica, así como extensiones \acrshort{js}. El objetivo de Bootstrap es facilitar el desarrollo web ofreciendo un aspecto visual atractivo tener que tener nociones de diseño gráfico.
+Bootstrap en un \textit{framework} gratuito para la creación de aplicaciones web que contiene unas plantillas, basadas en \acrshort{html} y \acrshort{css}, para formularios, botones, navegación y muchos otros tipos de componentes de la interfaz gráfica, así como extensiones \acrshort{js}. El objetivo de Bootstrap es facilitar el desarrollo web ofreciendo la posibilidad de generar interfaces de usuario con aspecto visual atractivo sin la necesidad de disponer de nociones de diseño gráfico.
 
 \begin{figure}[!htbp]
 	\centering
@@ -131,7 +131,7 @@ Además, para complementar a Bootstrap se han utilizado las siguientes extension
 
 \subsection{Bootstrap-select}
 
-Bootstrap-select\cite{BootstrapSelect} es una extensión que añade el estilo característico de Bootstrap las etiquetas \acrshort{html} \textit{select}, sobrescribiendo el estilo dependiente del sistema operativo que disponen por defecto. 
+Bootstrap-select\cite{BootstrapSelect} es una extensión que añade el estilo característico de Bootstrap las etiquetas \textit{select} de \acrshort{html}, sobrescribiendo el estilo dependiente del sistema operativo que disponen por defecto. 
 
 Este \textit{plugin} no solo altera el aspecto visual del componente de selección, sino que, por otra parte añade la posibilidad disponer los elementos en agrupaciones, añadir validaciones como un máximo y mínimo de elementos seleccionados y facilitar la modificación del componente mediante \acrshort{js}.
 
@@ -166,8 +166,8 @@ Se ha utilizado este \textit{framework} para el diseño del \textit{front-end} f
 \begin{itemize}
 	\item Aumenta la velocidad del desarrollo. Al facilitar el diseño de muchos de los componentes \acrshort{html} para formularios, tipográficas, etc. el desarrollador puede desentenderse de apartado artístico y dedicarse a la lógica de la aplicación web.
 	\item A partir de la versión 2.0 de Bootstrap ofrece soporte responsivo, es decir, la capacidad para adaptarse a múltiples dispositivos, como pueden ser tabletas, equipos de sobremesa, dispositivos móviles, teniendo que desarrollar una única vez el apartado gráfico.
-	\item El soporte, Bootstrap a acumulado tras de sí una gran comunidad que está dispuesta a solucionar cualquier problema que pueda surgir durante el desarrollo de interfaces gráficas.
+	\item El soporte, Bootstrap ha acumulado tras de sí una gran comunidad que está dispuesta a solucionar cualquier problema que pueda surgir durante el desarrollo de interfaces gráficas.
 	\item Comunidad de desarrolladores artísticos, Bootstrap dispone miles de artistas que diseñan plantillas para páginas web gratuitas pudiendo ser modificadas a las necesidades del producto en desarrollo.
 	\item Dispone de un sistema de rejillas para la disposición de elementos, que facilita la disposición de los elementos en pantalla y que a su vez se adapta a las pantallas de los dispositivos, pudiendo evitar los quebraderos de cabeza que supone modificar \acrshort{css} y añadir \textit{media queries} para obtener el mismo resultado.
-	\item Mayormente se ha usado está tecnología dado que \acrshort{labman} estaba desarrollado en esta y era requisito indispensable mantener el \textit{look and feel} de la aplicación en armonía.
+	\item Se ha usado está tecnología dado que \acrshort{labman} estaba desarrollado en esta y era requisito indispensable mantener el \textit{look and feel} de la aplicación en armonía.
 \end{itemize}
