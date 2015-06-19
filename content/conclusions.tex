@@ -4,6 +4,47 @@
 
 Este capítulo contiene las conclusiones que se han obtenido después de haber desarrollado el proyecto y las posibles acciones que se podrían tomar de cara al futuro para mejorarlo.
 
+\section{Objetivos cumplidos}
+
+A pesar de haber dispuesto de tanto tiempo como se hubiese deseado para la realización del proyecto, se podría considerar que los objetivos del proyecto han sido cumplidos, tal como se definen en el capítulo correspondiente.
+
+\begin{itemize}
+	\item Se ha añadido compatibilidad con \acrshort{oaipmh} al sistema de gestión de grupos de investigación \acrshort{labman}.
+	\item Se expandido \acrshort{labman} con un buscador avanzado que permita buscar y filtrar entre los distintos proyectos y publicaciones.
+\end{itemize}
+
+Por otro parte, los requisitos definidos del software han sido cubiertos:
+
+\begin{itemize}
+	\item El servidor permite transformar datos almacenados en una base de datos relacional en \acrshort{xml} respetando la especificación del esquema bibliográfico \acrshort{dc}.
+	\item El servidor permite visualizar la información como \acrshort{xml} en texto plano en navegadores web convencionales.
+	\item El servidor genera los \textit{sets} sobre cada uno de los tipos de publicaciones para facilitar la recuperación de metadatos selectiva.
+	\item En la aplicación web, el formulario extendido de búsquedas avanzadas debe estar oculto inicialmente para permitir realizar consultas sencillas rápidamente.
+	\item El buscador permite realizar búsquedas por rango entre dos fechas o establecer una fecha específica.
+	\item La aplicación mantene el \textit{Look and Feel} originario de \acrshort{labman}, su diseño y elementos básicos hacen uso o basan en los componentes facilitados por Bootstrap 3.
+	\item Los elementos del buscador avanzado han de ser responsiva para ser adaptable en diferentes dispositivos, como ordenadores de sobremesa, tabletas y móviles.
+	\item Las distintas secciones en la que se dispone el buscador de publicaciones y proyectos tienen un diseño intuitivo para facilitar su uso. 
+\end{itemize}
+
 \section{Conclusiones}
 
+Lo que al principio parecía un proyecto difícil, dado que en un comienzo no se conocía en que consistía el protocolo \acrshort{oaipmh} y se tuvo que adentrar en el gran mundo de los estándares para las publicaciones bibliográficas digitales. Se tuvo que realizar un estudio exhaustivo entre las tecnologías que facilitaba la comunidad de \acrshort{oai} y encontrar alguna que permitiera modificar la base de datos por defecto del proveedor de datos. Muchos de estos servidores no permitían dicha modificación lo que suponía tener que duplicar todos los datos del repositorio actual de \acrshort{labman}, siendo esta solución inviable. Había que buscar un servidor que facilitara una \acrshort{api} para extender o añadir la \acrshort{bd} por defecto de la herramienta, en caso contrario habría que plantearse en desarrollar un servidor \acrshort{oaipmh} por completo.
+
+Por suerte se descubrió MOAI, una aplicación basada en \acrshort{wsgi} compatible con el protocolo \acrshort{oaipmh} que permitía añadir una \acrshort{bd} personalizada y ahorrar todo el tiempo de desarrollo que hubiera supuesto tener que desarrollar un servidor \acrshort{http} que cumpliera con todos los requisitos por completo.
+
+De esta forma se pudo adaptar MOAI para reutilizar el modelo de datos relacional que usaba \acrshort{labman} y dedicar el tiempo a diseñar cuales de estos campos del modelo podían ser usados cumpliendo la especificación del estándar bibliográfico \acrshort{dc}.
+
+Por otra parte, al decidir utilizar MOAI se ha tenido que dedicar un tiempo extra a aprender en profundidad el lenguaje de programación Python, dado que hasta la fecha solo se sabía, como mucho, interpretar el código. De todas formas el tiempo dedicado a la asimilación de Python no ha sido en vano, dado ha posibilitado el descubrir un lenguaje con un gran potencial.
+
+Es necesario destacar lo mucho que se ha aprendido del desarrollo de aplicaciones web en Python con la puesta en producción del servidor \acrshort{oaipmh}, así como las pruebas previas realizadas para hacer el servidor público mediante Apache, así como con el desarrollo del \textit{back-end} de la extensión de \acrshort{labman} en Django. Estas tecnologías, si bien no son las más novedosas como NodeJS\cite{NodeJS} o AngularJS\cite{AngularJS}, si son algunas de las más usadas y asentadas, permitiendo contribuir con grandes proyectos implantados con esta tecnología.
+
+En conclusión, el desarrollo y estudio de este proyecto no ha resultado fácil, aunque se han aprendido mucho con el uso de estas tecnologías, además del contexto relacionado al campo de la investigación académica que seguro que resultarán de utilidad en futuros proyectos.
+
 \section{Líneas Futuras}
+
+Existen diversas funcionalidades que se podrían añadir al proyecto en un futuro y que aumentarían la calidad de este de una forma considerable:
+
+\begin{itemize}
+	\item Se debería modificar el modelo de datos relacional del repositorio de \acrshort{labman}, que permita almacenar la fecha de creación o modificación de los recursos. El protocolo de \acrshort{oaipmh} requiere conocer dicha fecha para mostrar los recursos delimitados por los parámetros \textit{from} y \textit{to} en las consultas \textit{ListIdefitiers} y \textit{ListRecords}. Esto aumentaría la eficiencia y el tiempo de respuesta del servidor evitando la ardua tarea que consultar los \textit{logs} de administración de Django en busca de cambios para actualizar la última fecha de modificación por cada uno de los recursos del dispuestos por el servidor \acrshort{oaipmh}.
+	\item En el cliente web, se podría añadir la funcionalidad para que la tabla que contiene el resultado de las consultas pudiera reorganizar las columnas, posibilitar el cambio del orden ascendente o descendente en las mismas, etc. Todo esto de la forma más eficiente posible mediante la definición de un sistema de cacheo de los recursos, reduciendo tiempo de generación de la respuesta y la cantidad de datos web consumidos.
+\end{itemize}
