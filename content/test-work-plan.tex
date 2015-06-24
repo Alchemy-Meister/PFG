@@ -8,11 +8,11 @@ Durante el desarrollo del proyecto se han realizado diversas pruebas para asegur
 
 Además de haber realizado las rutinarias pruebas unitarias, para comprobar que el servidor genera respuestas \acrshort{xml} válidas ajustandose a la especificación del protocolo \acrshort{oaipmh}, se ha optado por utilizar una herramienta web que facilita esta verificación, el \acrshort{oaipmh} validator.
 
-Se han realizados las siguientes pruebas mediante el uso de esta herramienta que verifican que el servidor funciona correctamente y por tanto los clientes que realicen las peticiones reciben las respuestas apropiadas:
+Se han realizado las siguientes pruebas mediante el uso de esta herramienta que verifica que el servidor funciona correctamente y por tanto los clientes que realicen las peticiones reciben las respuestas apropiadas:
 
 \subsection{Verificación del comando Idenfity}
 
-En está comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{Identify}. Como se puede ver en la figura \ref{fig:identify}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo y que la dirección del correo electrónico dispuesto para facilitar el soporte a incidencias es correcto.
+En esta comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{Identify}. Como se puede ver en la figura \ref{fig:identify}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo y que la dirección del correo electrónico dispuesto para facilitar el soporte a incidencias es correcto.
 
 \begin{figure}[!htbp]
 	\centering
@@ -23,7 +23,7 @@ En está comprobación se ha copiado la respuesta generada por el servidor \acrs
 
 \subsection{Verificación del comando ListMetadataFormats}
 
-En está comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{ListMetadataFormats}. Como se puede ver en la figura \ref{fig:listmetadataformats}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo. Por último lista los esquemas que soporta el servidor \acrshort{oaipmh}, siendo el primero de estos \acrlong{dc}, el formato bibliográfico estándar de soporte obligatorio, y el segundo un esquema opcional \acrfull{mods}\cite{MODS}.
+En esta comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{ListMetadataFormats}. Como se puede ver en la figura \ref{fig:listmetadataformats}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo. Por último lista los esquemas que soporta el servidor \acrshort{oaipmh}, siendo el primero de estos \acrlong{dc}, el formato bibliográfico estándar de soporte obligatorio, y el segundo un esquema opcional \acrfull{mods}\cite{MODS}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -34,7 +34,7 @@ En está comprobación se ha copiado la respuesta generada por el servidor \acrs
 
 \subsection{Verificación del comando ListSets}
 
-En está comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{ListSets}. 
+En esta comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a la petición \textit{ListSets}. 
 
 \begin{figure}[!htbp]
 	\centering
@@ -47,7 +47,7 @@ Como se puede ver en la figura \ref{fig:listsets}, el validador ha comprobado qu
 
 \subsection{Verificación del comando ListIdentifiers}
 
-En está comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a las peticiones \textit{ListIdentifiers} y \textit{ListRecords}. Como se puede ver en la figura \ref{fig:listidentifiers}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo.
+En esta comprobación se ha copiado la respuesta generada por el servidor \acrshort{oaipmh} a las peticiones \textit{ListIdentifiers} y \textit{ListRecords}. Como se puede ver en la figura \ref{fig:listidentifiers}, el validador ha comprobado que el documento \acrshort{xml} es válido, que cumple con el esquema de la versión 2.0 del protocolo.
 
 \begin{figure}[!htbp]
 	\centering

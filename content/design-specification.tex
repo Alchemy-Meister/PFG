@@ -17,9 +17,9 @@ Las herramientas que se han utilizado a la hora de diseñar el proyecto son:
 
 \subsection{Django-extensions, Graph Models}
 
-Graph Models es una para la generación de grafos del modelo relacional a partir de los ficheros \textit{model.py} donde se especifican las clases que conforman el diseño modelo relacional de la aplicación web. Entre algunas de sus características, permite especificar el nombre de varias aplicaciones para combinarlas en un único modelo, incluir herencias, la exclusión de modelos y columnas y modificar la plantilla con la que renderizar el grafo.
+Graph Models es una herramienta para la generación de grafos del modelo relacional a partir de los ficheros \textit{model.py} donde se especifican las clases que conforman el diseño modelo relacional de la aplicación web. Entre algunas de sus características, permite especificar el nombre de varias aplicaciones para combinarlas en un único modelo, incluir herencias, la exclusión de modelos o columnas y modificar la plantilla con la que renderizar el grafo.
 
-Para este proyecto, solo se ha usado sus capacidades para renderizar los siguientes grafos:
+Para este proyecto, solo se ha usado sus capacidades para renderizar los siguientes grafos, sin los cuales no hubiera sido capaz de entender el modelo relacional de \acrshort{labman} y hacer uso de las tablas necesarias para modificar la capa de datos del servidor MOAI y el filtrado de la búsqueda avanzada de proyectos y publicaciones:
 
 \begin{itemize}
 	\item Diagrama del modelo relacional completo compuesto por entidades de \acrshort{labman}.
@@ -27,6 +27,10 @@ Para este proyecto, solo se ha usado sus capacidades para renderizar los siguien
 	\item Diagrama del modelo relacional de la entidad proyectos.
 	\item Diagrama del modelo relacional para el sistema de ``logs'' de Django.
 \end{itemize}
+
+\section{Diseño de la arquitectura}
+
+TODO
 
 \begin{figure}[!htbp]
 	\centering
