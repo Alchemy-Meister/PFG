@@ -5,11 +5,95 @@
 En este capítulo se muestran los manuales que explican paso a paso cómo hacer uso de las herramientas desarrolladas a nivel de usuario. Los mismos se dividen en dos manuales correspondientes:
 
 \begin{itemize}
-	\item \textbf{Manual de usuario del servidor \acrshort{oaipmh}:} este manual abarca todas las posibles consultas que se pueden realizar al servidor mediante un cliente \acrshort{oaipmh} web genérico como puede ser el propio \acrshort{oaipmh} validator.
+	\item \textbf{Manual de usuario del servidor \acrshort{oaipmh}:} este manual abarca todas las posibles consultas que se pueden realizar al servidor mediante un cliente \acrshort{oaipmh} como puede ser el propio \acrshort{oaipmh} validator o los cliente que dispone la comunidad \acrshort{oai}.
 	\item \textbf{Manual de usuario de la aplicación web:} este manual abarca todos los pasos para realizar las búsquedas avanzadas en proyectos y publicaciones desde el portal web \acrshort{labman}.
 \end{itemize}
 
 \section{Manual de usuario del servidor OAI-PMH}
+
+Este manual pretende dar a conocer los comandos a los que responde el servidor \acrshort{oaipmh}, para que por medio de clientes \acrshort{oai} se pueda extraer la información del repositorio puesto en producción en la \acrshort{url} \url{http://apps.morelab.deusto.es/labman/oai}. Este manual pone como ejemplo como descargar el contenido \acrshort{xml} a través del mismo navegador o de la herramienta \acrshort{oaipmh} validator (\url{http://validator.oaipmh.com/}). Si es verdad que si se usan herramientas más sofisticadas como las facilitadas por la comunidad, se podrán procesar estos \acrshort{xml} y almacenarlos en una \acrshort{bd} de forma automatizada, para más información sobre estas herramientas consultad el siguiente enlace: \url{https://www.openarchives.org/pmh/tools/tools.php}.
+
+El servidor admite tanto las siguientes peticiones \acrshort{http} GET como POST por parte de los clientes, explicados en la sección \ref{sec:oaipmh}:
+
+\begin{itemize}
+	\item Identify
+	\item ListMetadataFormats
+	\item ListSets
+	\item ListIdentifiers
+	\item ListRecords
+	\item GetRecord
+\end{itemize}
+
+\subsection{Obtener la información del comando Identify}
+
+Para descargar la información del comando Identify desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo mediante un \textit{query string}.
+
+Para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+
+Se deberá seleccionar el comando \textit{Identify} y dentro en la pestaña \acrshort{xml} result para acceder a la información tal y como se muestra en la figura \ref{fig:download_identify}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.31]{fig/download_oai/download_identify}
+	\caption{Información del commando Identify desde \acrshort{oaipmh} validator}
+	\label{fig:download_identify}
+\end{figure}
+
+\subsection{Obtener la información del comando ListMetadataFormats}
+
+Para descargar la información del comando ListMetadataFormats desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo mediante un \textit{query string}.
+
+Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+
+Se deberá seleccionar el comando \textit{ListMetadataFormats} y dentro en la pestaña \acrshort{xml} result para acceder a la información.
+
+\subsection{Obtener la información del comando ListSets}
+
+Para descargar la información del comando ListSets desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo mediante un \textit{query string}.
+
+Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+
+Se deberá seleccionar el comando \textit{ListSets} y dentro en la pestaña \acrshort{xml} result para acceder a la información.
+
+\subsection{Obtener la información del comando ListIdentifiers}
+
+Para descargar la información del comando ListSets desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo y el formato bibliográfico en el que se desea que se devuelva la consulta mediante \textit{query strings}, pudiendo filtrar por \textit{set}, \textit{from} y \textit{to}.
+
+Este consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos. 
+
+Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+
+Se deberá seleccionar el comando \textit{ListSets} y dentro en la pestaña \acrshort{xml} result para acceder a la información, sin embargo la información de este comando estará limitado a los cien primero recursos del repositorio.
+
+\subsection{Obtener la información del comando ListRecords}
+
+Para descargar la información del comando ListRecords desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo y el formato bibliográfico en el que se desea que se devuelva la consulta mediante \textit{query strings}, puediendo filtrar por \textit{set}, \textit{from} y \textit{to}.
+
+Este consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos.
+
+Para descargar la información del comando ListRecords se deberá acceder a la pestaña \textit{Download} \acrshort{xml} e introducir la \acrshort{url} del repositorio. Adicionalmente se puede filtrar los recursos por \textit{set} y por rango temporal \textit{from} y \textit{to}.
+
+Por último se deberá pulsar en el botón \textit{Download records} para que genere los documentos \acrshort{xml}, estos se podrán descargar tanto individualmente como empaquetados en un zip tal y como se puede ver en la imagen \ref{fig:download_listrecords}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.31]{fig/download_oai/download_listrecords}
+	\caption{Información del commando ListRecords desde \acrshort{oaipmh} validator}
+	\label{fig:download_listrecords}
+\end{figure}
+
+\subsection{Obtener la información del comando GetRecord}
+
+Para descargar la información del comando GetRecord desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo y el formato bibliográfico en el que se desea que se devuelva la consulta mediante \textit{query strings}
+
+Para descargar la información de un recurso en concreto al igual que para \textit{ListRecords} hay que acceder a la pestaña \textit{Download} \acrshort{xml} e introducir la url del repositorio junto los \textit{query string} en la propia \acrshort{url} del repositorio para descargar la información como se muestra en la figura \ref{fig:download_getrecord}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.31]{fig/download_oai/download_getrecord}
+	\caption{Información del commando GetRecord desde \acrshort{oaipmh} validator}
+	\label{fig:download_getrecord}
+\end{figure}
 
 \section{Manual de usuario de la aplicación web}
 
@@ -39,11 +123,11 @@ Este manual se centra en las opciones de \textit{Projects} y \textit{Publication
 
 \subsection{Projects: Buscador de proyectos de LabMan}
 
-Esta página muestra en principio la lista de todos proyectos que involucran a los miembros del equipo de investigación sin filtrar. Mediante la barra de búsqueda sencillas (véase la figura \ref{fig:project_search_bar}), permite filtrar los proyectos por título o por el nombre del investigador que participe en los mismos.
+Esta página muestra en principio la lista de todos los proyectos que involucran a los miembros del equipo de investigación sin filtrar. Mediante la barra de búsqueda para consultas sencillas (véase la figura \ref{fig:project_search_bar}), permite filtrar los proyectos por título o por el nombre del investigador que participe en los mismos.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[scale=0.4]{fig/search_bar}
+	\includegraphics[scale=0.35]{fig/project_search_bar}
 	\caption{Barra de búsqueda de consultas simples}
 	\label{fig:project_search_bar}
 \end{figure}
@@ -89,3 +173,21 @@ Una vez se hayan definidos los valores de las características por las que se de
 \end{figure}
 
 \subsection{Publications: Buscador de publicaciones de LabMan}
+
+Esta página muestra en principio la lista de todos las publicaciones redactados por los miembros del equipo de investigación sin filtrar. Del mismo modo que con los proyectos, mediante la barra de búsqueda para consultas sencillas (véase la figura \ref{fig:publication_search_bar}), permite filtrar las publicaciones por título o por el nombre del investigador que ha contribuido a las mismas.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.35]{fig/publication_search_bar}
+	\caption{Barra de búsqueda de consultas simples de publicaciones}
+	\label{fig:publication_search_bar}
+\end{figure}
+
+Una vez se hayan definidos los valores de las características por las que se desea filtrar los proyectos se deberá pulsar el botón \textbf{Search} para comenzar la búsqueda y visualizar el resultado como puede mostrarse en la figura \ref{fig:publications_search_result}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.31]{fig/publications_search_result}
+	\caption{Resultado de la búsqueda de publicaciones}
+	\label{fig:publications_search_result}
+\end{figure}
