@@ -2,7 +2,7 @@
 
 \section{Visión general}
 
-Este capítulo tiene como objetivo describir la labor de diseño realizada para desarrollar el proyecto, así como las herramientas que han sido necesarios para su realización. En el siguiente listado se describen los aspectos de diseño que se van a explicar en este capítulo:
+Este capítulo tiene como objetivo describir la labor de diseño realizada para desarrollar el proyecto, así como las herramientas que han sido necesarias para su realización. En el siguiente listado se describen los aspectos de diseño que se van a explicar en este capítulo:
 
 \begin{itemize}
 	\item \textbf{Diseño de la arquitectura}: descripción del diseño elegido para la arquitectura.
@@ -19,10 +19,10 @@ Las herramientas que se han utilizado a la hora de diseñar el proyecto son:
 
 Graph Models es una herramienta para la generación de grafos del modelo relacional a partir de los ficheros \textit{model.py} donde se especifican las clases que conforman el diseño modelo relacional de la aplicación web. Entre algunas de sus características, permite especificar el nombre de varias aplicaciones para combinarlas en un único modelo, incluir herencias, la exclusión de modelos o columnas y modificar la plantilla con la que renderizar el grafo.
 
-Para este proyecto, solo se ha usado sus capacidades para renderizar los siguientes grafos, sin los cuales no hubiera sido capaz de entender el modelo relacional de \acrshort{labman} y hacer uso de las tablas necesarias para modificar la capa de datos del servidor MOAI y el filtrado de la búsqueda avanzada de proyectos y publicaciones:
+Para este proyecto, solo se han usado sus capacidades para renderizar los siguientes grafos, sin los cuales no hubiera sido capaz de entender el modelo relacional de \acrshort{labman} y hacer uso de las tablas necesarias para modificar la capa de datos del servidor MOAI y el filtrado de la búsqueda avanzada de proyectos y publicaciones:
 
 \begin{itemize}
-	\item Diagrama del modelo relacional completo compuesto por entidades de \acrshort{labman}.
+	\item Diagrama del modelo relacional completo, compuesto por todas las entidades de \acrshort{labman}.
 	\item Diagrama del modelo relacional de la entidad publicaciones.
 	\item Diagrama del modelo relacional de la entidad proyectos.
 	\item Diagrama del modelo relacional para el sistema de ``logs'' de Django.
@@ -30,11 +30,11 @@ Para este proyecto, solo se ha usado sus capacidades para renderizar los siguien
 
 \section{Diseño de la arquitectura}
 
-La arquitectura del servidor \acrshort{oaipmh} (ver figura \ref{fig:oai_architecture}) se basa en un modelo cliente servidor que gira a una base de datos PostgreSQL.
+La arquitectura del servidor \acrshort{oaipmh} (ver figura \ref{fig:oai_architecture}) se basa en un modelo cliente servidor que gira en torno a una base de datos PostgreSQL.
 
-La aplicación MOAI al ser una aplicación WSGI de uso local, requiere de un servidor \acrshort{http}, que redirija el trafico de las peticiones externas a la \acrshort{url} del servidor a la aplicación local.
+La aplicación MOAI al ser una aplicación WSGI de uso local, requiere de un servidor \acrshort{http}, que redirija el trafico de las peticiones externas de la \acrshort{url} del servidor a la aplicación local.
 
-Por cada petición de recursos que recibe la aplicación, MOAI realiza consultas a la \acrshort{bd} PostgreSQL necesarias para obtener la información de los recursos en cuestión, realizar un procesamiento de las consultas a \acrfull{json}\cite{JSON} convertir los datos resultantes en el documento \acrshort{xml} final que se envía al cliente a través del servidor \acrshort{http} NGINX\cite{NGINX}.
+Por cada petición de recursos que recibe la aplicación, MOAI realiza las consultas a la \acrshort{bd} PostgreSQL necesarias para obtener la información de los recursos en cuestión. Tras esto se realiza un procesamiento de las consultas a \acrfull{json}\cite{JSON} para posteriormente convertir los datos resultantes en el documento \acrshort{xml} final que se envía al cliente a través del servidor \acrshort{http} NGINX\cite{NGINX}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -45,9 +45,9 @@ Por cada petición de recursos que recibe la aplicación, MOAI realiza consultas
 
 \section{Diseño del ``mapeo'' de la Base de Datos}
 
-El repositorio de \acrshort{labman} consiste en un conjunto de un total de 120 tablas para almacenar toda la información (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}. Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
+El repositorio de \acrshort{labman} consiste en un conjunto de 120 tablas para almacenar toda la información sobre el grupo de investigación y el propio sistema (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}). Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
 
-Sabiendo que dicho servidor OAI iba a publicar solo la información de las publicaciones de los grupos de investigación, por lo que se pudo simplificar el modelo relacional completo y a veces incomprensible, debido a el solapamiento de las lineas de que simbolizan relaciones, por uno simplificado y dedicado a las publicaciones (véase la figura \ref{fig:publicationsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/publications.png}}), lo cual simplificó la tarea del ``mapeo'', dado que la mayoría de la información podía adquirirse desde dicho grafo a excepción de las relaciones externas a las publicaciones, como pueden ser las entidades \textit{Person}, \textit{Tags} y \textit{Languages}. Para visualizar los atributos de estas últimas se tuvo que seguir haciendo uso del diagrama completo.
+Sabiendo que dicho servidor OAI iba a publicar solo la información de las publicaciones de los grupos de investigación, se pudo simplificar el modelo relacional completo y a veces incomprensible, debido a el solapamiento de las lineas que simbolizan relaciones, por uno simplificado y dedicado a las publicaciones (véase la figura \ref{fig:publicationsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/publications.png}}), lo cual simplificó la tarea del ``mapeo'', dado que la mayoría de la información podía adquirirse desde dicho grafo a excepción de las relaciones externas a las publicaciones, como pueden ser las entidades \textit{Person}, \textit{Tags} y \textit{Languages}. Para visualizar los atributos de éstas últimas se tuvo que seguir haciendo uso del diagrama completo.
 
 \begin{figure}[!htbp]
 	\centering
@@ -56,13 +56,13 @@ Sabiendo que dicho servidor OAI iba a publicar solo la información de las publi
 	\label{fig:labmanmodel}
 \end{figure}
 
-Para el desarrollo del servidor hizo uso de la documentación que proveía la aplicación MOAI para la modificación de la capa de datos. En esta se especificaban los campos de la especificación de \acrshort{dc} que se podían utilizar para el procesado de información y la generación final del \acrshort{xml}. Estos campos y su definición correspondiente por la propia especificación de \acrshort{dc} son las siguientes:
+Para el desarrollo del servidor se hizo uso de la documentación que proveía la aplicación MOAI para la modificación de la capa de datos. En ésta se detallan los campos de la especificación de \acrshort{dc} que se podían utilizar para el procesado de información y la generación final del \acrshort{xml}. Estos campos y su definición correspondiente son las siguientes:
 
 \begin{itemize}
 	\item \textbf{title:} El nombre dado al recursos y por el que es formalmente conocido.
 	\item \textbf{creator:} La entidad primaria responsable de la creación del recurso.
 	\item \textbf{subject:} El tema que trata el recurso.
-	\item \textbf{description:} Documento que puede incluir, pero no estar limitado a el resumen o la tabla de contenidos del recurso.
+	\item \textbf{description:} Documento que puede incluir el resumen o la tabla de contenidos del recurso pero no estar limitado a ellos.
 	\item \textbf{publisher:} La entidad responsable de hacer que el recurso este disponible.
 	\item \textbf{contributor:} Entidad responsable de hacer contribuciones al recurso.
 	\item \textbf{type:} Naturaleza o género del recurso.
@@ -72,7 +72,7 @@ Para el desarrollo del servidor hizo uso de la documentación que proveía la ap
 	\item \textbf{language:} El lenguaje del recurso.
 	\item \textbf{date:} Punto temporal que se asocia con un evento del ciclo de vida del recurso.
 	\item \textbf{relation:} Un recurso relacionado.
-	\item \textbf{coverage:} La jurisdicción ajo la que un recurso es relevante.
+	\item \textbf{coverage:} La jurisdicción bajo la que un recurso es relevante.
 	\item \textbf{rights:} Los derechos propiedad intelectual a los que se ve asociado el recurso.
 \end{itemize}
 
@@ -140,3 +140,4 @@ Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}
 	\caption{Modelo de datos relacional de las proyectos}
 	\label{fig:projectsmodel}
 \end{figure}
+
