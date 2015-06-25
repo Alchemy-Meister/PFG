@@ -45,9 +45,9 @@ Por cada petición de recursos que recibe la aplicación, MOAI realiza consultas
 
 \section{Diseño del ``mapeo'' de la Base de Datos}
 
-El repositorio de \acrshort{labman} consiste en un conjunto de un total de 120 tablas para almacenar toda la información (véase la figura \ref{fig:labmanmodel}). Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
+El repositorio de \acrshort{labman} consiste en un conjunto de un total de 120 tablas para almacenar toda la información (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}. Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
 
-Sabiendo que dicho servidor OAI iba a publicar solo la información de las publicaciones de los grupos de investigación, por lo que se pudo simplificar el modelo relacional completo y a veces incomprensible, debido a el solapamiento de las lineas de que simbolizan relaciones, por uno simplificado y dedicado a las publicaciones (véase \ref{fig:publicationsmodel}), lo cual simplificó la tarea del ``mapeo'', dado que la mayoría de la información podía adquirirse desde dicho grafo a excepción de las relaciones externas a las publicaciones, como pueden ser las entidades \textit{Person}, \textit{Tags} y \textit{Languages}. Para visualizar los atributos de estas últimas se tuvo que seguir haciendo uso del diagrama completo.
+Sabiendo que dicho servidor OAI iba a publicar solo la información de las publicaciones de los grupos de investigación, por lo que se pudo simplificar el modelo relacional completo y a veces incomprensible, debido a el solapamiento de las lineas de que simbolizan relaciones, por uno simplificado y dedicado a las publicaciones (véase la figura \ref{fig:publicationsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/publications.png}}), lo cual simplificó la tarea del ``mapeo'', dado que la mayoría de la información podía adquirirse desde dicho grafo a excepción de las relaciones externas a las publicaciones, como pueden ser las entidades \textit{Person}, \textit{Tags} y \textit{Languages}. Para visualizar los atributos de estas últimas se tuvo que seguir haciendo uso del diagrama completo.
 
 \begin{figure}[!htbp]
 	\centering
@@ -109,7 +109,7 @@ En esta tabla se pueden visualizar los
 \begin{itemize}
 	\item \textbf{title:} entities.publication.thesis.title.
 	\item \textbf{creator:} person.full\_name relacionado con entities.publication.thesis.author.
-	\item \textbf{description:} publication.thesisabstract.abstract relacionado con entities.publication.thesis.id.
+	\item \textbf{description:} publication.thesisabstract.abstract relacionado con entities.publication.thesis. id.
 	\item \textbf{type:} Valor estático ``doctoral dissertation''.
 	\item \textbf{format:} Valor estático ``digital''.
 	\item \textbf{identifier:} Concatenación de los campos id y slug de entities.publication.publication.
@@ -118,6 +118,21 @@ En esta tabla se pueden visualizar los
 \end{itemize}
 
 \section{Diseño de la aplicación web}
+
+El cliente web es una extensión del sistema ya es uno \acrshort{labman}. La aportación realizada en este proyecto pretende mejorar su funcionalidad mediante la implementación de un buscador avanzado de publicaciones y proyectos para facilitar el acceso la información deseada.
+
+El cliente web ha sido diseñado usando los elementos proporcionados por Django para los elementos estáticos y validación de formularios y a demás se ha utilizado jQuery para añadir funcionalidad dinámica, \acrshort{html} para el contenido y \acrshort{css} y Bootstrap para el diseño.
+
+Al igual que con servidor de MOAI, el diseño de la \acrshort{bd} ya venía preestablecido, pero se ha requerido hacer un estudio de las entidades del modelo de datos relacionados con las publicaciones, como ya ha podido verse en la figura \ref{fig:publicationsmodel}, así como el modelo de proyectos (véase la figura \ref{fig:projectsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/projects.png}}), para realizar el filtrado de la información a partir de un subconjunto de sus facetas.
+
+Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}) en la que el usuario interactua con el controlador actualizando la vista para introducir los valores en las facetas sobre las que desea filtrar la información y al realizar comenzar la búsqueda, el controlador consulta el modelo, obtiene la información requerida por el usuario y actualiza la vista.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.6]{fig/mvc}
+	\caption{Arquitectura \acrshort{mvc} del cliente web}
+	\label{fig:mvc}
+\end{figure}
 
 \begin{figure}[!htbp]
 	\centering
