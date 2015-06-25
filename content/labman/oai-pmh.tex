@@ -21,10 +21,6 @@ Como se ve en la figura \ref{fig:oaiflow}\cite{oai_implementation} el cliente pu
 	\item \textbf{GetRecord: } Petición utilizada para devolver un registro en concreto, siendo necesario especificar el identificador del recurso solicitado y el formato bibliográfico en el que se desea que se devuelva.
 \end{itemize}
 
-\clearpage
-
-\lstinputlisting[language=XML, frame=single, label={lst:oaipmhgetrecord}, caption=Ejemplo de petición GetRecord de \acrshort{oaipmh}]{content/code/xml/get-record-example.xml}
-
 El \acrshort{xml} generado por el servidor presenta la siguiente estructura para la extracción de los recursos:
 
 \begin{itemize}
@@ -36,3 +32,5 @@ El \acrshort{xml} generado por el servidor presenta la siguiente estructura para
 			\item Metadatos, la información misma del registro en cuestión compuesto por atributos tales como \textit{dc:title}, \textit{dc:creator}, \textit{dc:subjet}, y en general cualquiera de los atributos definidos en el set de elementos de \acrshort{dc}\cite{DCElements} o el formato bibliográfico que se haya especificado en la consulta.
 		\end{itemize}
 \end{itemize}
+
+\lstinputlisting[language=XML, frame=single, label={lst:oaipmhgetrecord}, caption=Ejemplo de petición GetRecord de \acrshort{oaipmh}]{content/code/xml/get-record-example.xml}

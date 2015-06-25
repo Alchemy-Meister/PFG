@@ -11,7 +11,7 @@ En este capítulo se muestran los manuales que explican paso a paso cómo hacer 
 
 \section{Manual de usuario del servidor OAI-PMH}
 
-Este manual pretende dar a conocer los comandos a los que responde el servidor \acrshort{oaipmh}, para que por medio de clientes \acrshort{oai} se pueda extraer la información del repositorio puesto en producción en la \acrshort{url} \url{http://apps.morelab.deusto.es/labman/oai}. Este manual pone como ejemplo como descargar el contenido \acrshort{xml} a través del mismo navegador o de la herramienta \acrshort{oaipmh} validator (\url{http://validator.oaipmh.com/}). Si es verdad que si se usan herramientas más sofisticadas como las facilitadas por la comunidad, se podrán procesar estos \acrshort{xml} y almacenarlos en una \acrshort{bd} de forma automatizada, para más información sobre estas herramientas consultad el siguiente enlace: \url{https://www.openarchives.org/pmh/tools/tools.php}.
+Este manual pretende dar a conocer los comandos a los que responde el servidor \acrshort{oaipmh}, para que por medio de clientes \acrshort{oai} se pueda extraer la información del repositorio puesto en producción en la \acrshort{url} \url{http://apps.morelab.deusto.es/labman/oai}. Este manual pone como ejemplo como descargar el contenido \acrshort{xml} a través del mismo navegador o de la herramienta \acrshort{oaipmh} validator (\url{http://validator.oaipmh.com/}). Si se usan herramientas más sofisticadas como las facilitadas por la comunidad, se podrán procesar estos \acrshort{xml} y almacenarlos en una \acrshort{bd} de forma automatizada, para más información sobre estas herramientas consultad el siguiente enlace: \url{https://www.openarchives.org/pmh/tools/tools.php}.
 
 El servidor admite tanto las siguientes peticiones \acrshort{http} GET como POST por parte de los clientes, explicados en la sección \ref{sec:oaipmh}:
 
@@ -30,7 +30,7 @@ Para descargar la información del comando Identify desde el propio navegador ha
 
 Para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
 
-Se deberá seleccionar el comando \textit{Identify} y dentro en la pestaña \acrshort{xml} result para acceder a la información tal y como se muestra en la figura \ref{fig:download_identify}.
+Se deberá seleccionar el comando \textit{Identify} y escoger la pestaña \textit{\acrshort{xml} result} para acceder a la información tal y como se muestra en la figura \ref{fig:download_identify}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -43,33 +43,33 @@ Se deberá seleccionar el comando \textit{Identify} y dentro en la pestaña \acr
 
 Para descargar la información del comando ListMetadataFormats desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo mediante un \textit{query string}.
 
-Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+Al igual que para el comando \textit{Identify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
 
-Se deberá seleccionar el comando \textit{ListMetadataFormats} y dentro en la pestaña \acrshort{xml} result para acceder a la información.
+Se deberá seleccionar el comando \textit{ListMetadataFormats} y escoger la pestaña \textit{\acrshort{xml} result} para acceder a la información.
 
 \subsection{Obtener la información del comando ListSets}
 
 Para descargar la información del comando ListSets desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo mediante un \textit{query string}.
 
-Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+Al igual que para el comando \textit{Identify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
 
-Se deberá seleccionar el comando \textit{ListSets} y dentro en la pestaña \acrshort{xml} result para acceder a la información.
+Se deberá seleccionar el comando \textit{ListSets} y escoger la pestaña \textit{\acrshort{xml} result} para acceder a la información.
 
 \subsection{Obtener la información del comando ListIdentifiers}
 
 Para descargar la información del comando ListSets desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo y el formato bibliográfico en el que se desea que se devuelva la consulta mediante \textit{query strings}, pudiendo filtrar por \textit{set}, \textit{from} y \textit{to}.
 
-Este consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos. 
+Esta consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos. 
 
-Al igual que para el comando \textit{Idetify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
+Al igual que para el comando \textit{Identify}, para descargarla desde \acrshort{oaipmh} validator es necesario introducir la \acrshort{url} del repositorio \acrshort{oai} y pulsar en el botón validate, si se introduce una \acrshort{url} de un repositorio válida aparecerán las operaciones disponibles del servidor.
 
-Se deberá seleccionar el comando \textit{ListSets} y dentro en la pestaña \acrshort{xml} result para acceder a la información, sin embargo la información de este comando estará limitado a los cien primero recursos del repositorio.
+Se deberá seleccionar el comando \textit{ListSets} y escoger la pestaña \textit{\acrshort{xml} result} para acceder a la información, sin embargo la información de este comando estará limitado a los cien primero recursos del repositorio.
 
 \subsection{Obtener la información del comando ListRecords}
 
 Para descargar la información del comando ListRecords desde el propio navegador ha de realizarse una petición GET a la \acrshort{url} del servidor especificando dicho verbo y el formato bibliográfico en el que se desea que se devuelva la consulta mediante \textit{query strings}, puediendo filtrar por \textit{set}, \textit{from} y \textit{to}.
 
-Este consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos.
+Esta consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos.
 
 Para descargar la información del comando ListRecords se deberá acceder a la pestaña \textit{Download} \acrshort{xml} e introducir la \acrshort{url} del repositorio. Adicionalmente se puede filtrar los recursos por \textit{set} y por rango temporal \textit{from} y \textit{to}.
 
@@ -99,7 +99,7 @@ Para descargar la información de un recurso en concreto al igual que para \text
 
 \subsection{Página principal de LabMan}
 
-Nada más acceder al portal web de \acrshort{labman}, se visualiza su \textit{homepage} (ver figura \ref{fig:morelab_homepage}). En ella se muestra una imagen con los miembros grupo, la descripción y las últimas noticias relacionadas con el equipo de investigación en cuestión.
+Nada más acceder al portal web de \acrshort{labman}, se visualiza su \textit{homepage} (ver figura \ref{fig:morelab_homepage}). En ella se muestra una imagen con los miembros del grupo, la descripción y las últimas noticias relacionadas con el equipo de investigación en cuestión.
 
 Por otra parte, se presenta una barra de navegación, con todas las siguientes opciones que ofrece \acrshort{labman} por defecto:
 
@@ -132,7 +132,7 @@ Esta página muestra en principio la lista de todos los proyectos que involucran
 	\label{fig:project_search_bar}
 \end{figure}
 
-Sin embargo, al pulsar el botón con el símbolo \textbf{+} de la barra se búsquedas, se muestra un panel para realizar búsquedas avanzadas tal y como se muestra en la figura \ref{fig:projects_advanced_search}.
+Sin embargo, al pulsar el botón con el símbolo \textbf{+} de la barra de búsquedas, se muestra un panel para realizar búsquedas avanzadas tal y como se muestra en la figura \ref{fig:projects_advanced_search}.
 
 \begin{figure}[!htbp]
 	\centering
