@@ -76,13 +76,12 @@ Para el desarrollo del servidor se hizo uso de la documentación que proveía la
 	\item \textbf{rights:} Los derechos propiedad intelectual a los que se ve asociado el recurso.
 \end{itemize}
 
-Gracias a esta lista de términos junto con sus definiciones fue necesaria para buscar los campos en la \acrshort{bd} que hacían referencia a estos términos.
+Esta lista de términos junto con sus definiciones fue necesaria para buscar los campos en la \acrshort{bd} que hacían referencia a estos términos.
 
 Debido al diseño del modelo se descubrió que los tipos de publicaciones, siendo estos actas, ponencias, revistas, artículos de revistas, publicaciones, artículos de publicaciones, libros y secciones de libros, tenían elementos relacionados entre sí. Sin embargo las tesis doctorales estaban formadas por campos completamente independientes por los que se tuvo que realizar un estudio de que elementos de la lista anterior de términos \acrshort{dc} se iban a extraer de la base de datos para las publicaciones y las tesis doctorales por separado quedado el ``mapeo'' resultante tal y como se explica en las subsecciones siguientes.
 
 \subsection{``Mapeo'' de publicaciones}
-
-En esta tabla se pueden visualizar los 
+En la siguiente lista pueden visualizar la relación entre los elementos \acrshort{dc} y las columnas de las tablas referente a las publicaciones con las que se realiza el ``mapeo''.
 
 \begin{itemize}
 	\item \textbf{title:} entities.publication.publication.title.
@@ -106,6 +105,8 @@ En esta tabla se pueden visualizar los
 
 \subsection{``Mapeo'' de tesis doctorales}
 
+En la siguiente lista se pueden visualizar la relación entre los elementos \acrshort{dc} y las columnas de las tablas referente a las tesis doctorales con las que se realiza el ``mapeo''.
+
 \begin{itemize}
 	\item \textbf{title:} entities.publication.thesis.title.
 	\item \textbf{creator:} person.full\_name relacionado con entities.publication.thesis.author.
@@ -119,11 +120,11 @@ En esta tabla se pueden visualizar los
 
 \section{Diseño de la aplicación web}
 
-El cliente web es una extensión del sistema ya es uno \acrshort{labman}. La aportación realizada en este proyecto pretende mejorar su funcionalidad mediante la implementación de un buscador avanzado de publicaciones y proyectos para facilitar el acceso la información deseada.
+El cliente web es una extensión del sistema \acrshort{labman}. La aportación realizada en este proyecto pretende mejorar su funcionalidad mediante la implementación de un buscador avanzado de publicaciones y proyectos para facilitar el acceso a la información deseada.
 
-El cliente web ha sido diseñado usando los elementos proporcionados por Django para los elementos estáticos y validación de formularios y a demás se ha utilizado jQuery para añadir funcionalidad dinámica, \acrshort{html} para el contenido y \acrshort{css} y Bootstrap para el diseño.
+El cliente web ha sido diseñado usando los elementos proporcionados por Django para los elementos estáticos, validación de formularios, a demás se ha utilizado jQuery para añadir funcionalidad dinámica, \acrshort{html} para el contenido y por último \acrshort{css} y Bootstrap para el diseño.
 
-Al igual que con servidor de MOAI, el diseño de la \acrshort{bd} ya venía preestablecido, pero se ha requerido hacer un estudio de las entidades del modelo de datos relacionados con las publicaciones, como ya ha podido verse en la figura \ref{fig:publicationsmodel}, así como el modelo de proyectos (véase la figura \ref{fig:projectsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/projects.png}}), para realizar el filtrado de la información a partir de un subconjunto de sus facetas.
+Al igual que con el servidor de MOAI, el diseño de la \acrshort{bd} ya venía preestablecido, pero se ha requerido hacer un estudio de las entidades del modelo de datos relacionados con las publicaciones, como ya se ha podido ver en la figura \ref{fig:publicationsmodel}, así como el modelo de proyectos (véase la figura \ref{fig:projectsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/projects.png}}), para realizar el filtrado de la información a partir de un subconjunto de sus facetas.
 
 Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}) en la que el usuario interactua con el controlador actualizando la vista para introducir los valores en las facetas sobre las que desea filtrar la información y al realizar comenzar la búsqueda, el controlador consulta el modelo, obtiene la información requerida por el usuario y actualiza la vista.
 

@@ -22,7 +22,7 @@ Antes del despliegue final en producción del servidor \acrshort{oaipmh} en el s
 
 En primer lugar se tuvo que localizar los ficheros de configuración y \textit{logs} del servidor Apache para OS X, estos se encontraban \textit{/etc/apache2} y \textit{/var/log/apache2} respectivamente.
 
-Como el servidor de \acrshort{oaipmh} estaba basado en una aplicación basada en \acrfull{wsgi} se tenía que modificar el fichero \textit{httpd.conf} para que el servidor Apache cargase el módulo necesario para la ejecución de este tipo de aplicaciones. Se siguió el tutorial de configuración rápida para mod\_wsgi (Módulo \acrshort{wsgi}) en la \textit{wiki} de la página del proyecto en Google Code\cite{GoogleCode} para hacer una aplicación de prueba y comprobar que el módulo se había cargado correctamente\cite{WSGI_tutorial}.
+Como el servidor de \acrshort{oaipmh} es una aplicación basada en \acrfull{wsgi} se tenía que modificar el fichero \textit{httpd.conf} para que el servidor Apache cargase el módulo necesario para la ejecución de este tipo de aplicaciones. Se siguió el tutorial de configuración rápida para mod\_wsgi (Módulo \acrshort{wsgi}) en la \textit{wiki} de la página del proyecto en Google Code\cite{GoogleCode} para hacer una aplicación de prueba y comprobar que el módulo se había cargado correctamente\cite{WSGI_tutorial}.
 
 Se procedió a crear un \textit{VirtualHost} para hacer referencia al servidor \acrshort{oaipmh} por medio de una \acrshort{url}, sin embargo no se consiguió configurar adecuadamente, al hacer una petición por medio de un navegador web no se recibía respuesta alguna y el \textit{log} de Apache no registraba ningún error en las peticiones, por lo que se abandonó la idea de configurar el \textit{Virtual Host}.
 
