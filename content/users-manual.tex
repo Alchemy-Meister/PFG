@@ -71,16 +71,16 @@ Para descargar la información del comando ListRecords desde el propio navegador
 
 Esta consulta devolverá los cien primeros identificadores del repositorio, además de una clave para continuar la consulta de los siguientes cien elementos, cada vez que se quiera continuar la consulta se deberá hacer uso de dicho código, hasta que la consulta resultante disponga menos de cien recursos.
 
-Para descargar la información del comando ListRecords se deberá acceder a la pestaña \textit{Download} \acrshort{xml} e introducir la \acrshort{url} del repositorio. Adicionalmente se puede filtrar los recursos por \textit{set} y por rango temporal \textit{from} y \textit{to}.
-
-Por último se deberá pulsar en el botón \textit{Download records} para que genere los documentos \acrshort{xml}, estos se podrán descargar tanto individualmente como empaquetados en un zip tal y como se puede ver en la imagen \ref{fig:download_listrecords}.
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[scale=0.31]{fig/download_oai/download_listrecords}
 	\caption{Información del commando ListRecords desde \acrshort{oaipmh} validator}
 	\label{fig:download_listrecords}
 \end{figure}
+
+Para descargar la información del comando ListRecords se deberá acceder a la pestaña \textit{Download} \acrshort{xml} e introducir la \acrshort{url} del repositorio. Adicionalmente se puede filtrar los recursos por \textit{set} y por rango temporal \textit{from} y \textit{to}.
+
+Por último se deberá pulsar en el botón \textit{Download records} para que genere los documentos \acrshort{xml}, estos se podrán descargar tanto individualmente como empaquetados en un zip tal y como se puede ver en la imagen \ref{fig:download_listrecords}.
 
 \subsection{Obtener la información del comando GetRecord}
 
@@ -182,6 +182,36 @@ Esta página muestra en principio la lista de todos las publicaciones redactados
 	\caption{Barra de búsqueda de consultas simples de publicaciones}
 	\label{fig:publication_search_bar}
 \end{figure}
+
+Sin embargo, al pulsar el botón con el símbolo \textbf{+} de la barra de búsquedas, se muestra un panel para realizar búsquedas avanzadas tal y como se muestra en la figura \ref{fig:publications_advanced_search}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.7]{fig/publications_advanced_search}
+	\caption{Búsqueda avanzada de proyectos}
+	\label{fig:publications_advanced_search}
+\end{figure}
+
+Mediante este buscador avanzado, se pueden filtrar las publicaciones a partir de los siguientes características:
+
+\begin{itemize}
+	\item Basic information
+	\begin{itemize}
+		\item \textbf{Publication title:} Busca todos las publicaciones que contengan alguna de las palabras introducidas en este campo.
+		\item \textbf{From year:} Busca todos los publicaciones que tengan un menor, menor o igual, mayor, mayor o igual o igual a la introducida en este campo (formato YYYY).
+		\item \textbf{To year:} Busca todos los publicaciones que tengan un menor, menor o igual, mayor, mayor o igual o igual a la introducida en este campo (formato YYYY).
+		\item \textbf{Publication types:} Busca todos las publicaciones que coincidan con alguno de los tipos de publicaciones seleccionados en este campo.
+		\item \textbf{Tags:} Busca todos las publicaciones que estén relacionados con alguno de las etiquetas seleccionadas en este campo.
+	\end{itemize}
+	\item Authors
+	\begin{itemize}
+		\item \textbf{Author:} Busca todos las publicaciones que tenga a los investigadores del grupo de investigación seleccionados en este campo como autores.
+	\end{itemize}
+	\item Editors
+	\begin{itemize}
+		\item \textbf{Editor:} Busca todos las publicaciones que tenga a los investigadores del grupo de investigación seleccionados en este campo como editores.
+	\end{itemize}
+\end{itemize}
 
 Una vez se hayan definidos los valores de las características por las que se desea filtrar los proyectos se deberá pulsar el botón \textbf{Search} para comenzar la búsqueda y visualizar el resultado como puede mostrarse en la figura \ref{fig:publications_search_result}.
 
