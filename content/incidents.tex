@@ -33,3 +33,18 @@ Se intento realizar una nueva petición desde el navegador y esta vez si se obtu
 A lo largo del desarrollo del servidor se habían utilizado varias versiones de Python como la 2.5, 2.6 y 2.7, trabajando la versión final en la 2.6. Sin embargo, Apache estaba ejecutando los fragmentos residuales del código desactualizado de la versión 2.7. Se estudiaron las posibles soluciones al problema y se decidió actualizar el código de la versión 2.7 con aquel desarrollado en la versión 2.6 tras descubrir que no había incompatibilidades en el código.
 
 Tras realizar este cambio, el servidor fue desplegado correctamente. Se hicieron pruebas con clientes externos a la máquina local para comprobar que realmente se podía acceder al servidor y se procedió a realizar un redireccionamiento de puertos en el Router para hacer el servidor \acrshort{oaipmh} público y realizar las últimas pruebas con clientes web que requerían la \acrshort{url} del servidor para descargar los datos y realizar las validaciones.
+
+\section{Escapar caracteres especiales de JSON}
+
+Gracias a las pruebas unitarias realizadas en el método \textit{oai\_query} que se tuvo que implementar en la capa de \acrshort{bd} del servidor MOAI se descubrió que varios de los campos recolectados podían contener caracteres de control como los que se muestran en la figura \ref{fig:json_string}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.5]{fig/json_string}
+	\caption{Definición de String de \acrshort{json}}
+	\label{fig:json_string}
+\end{figure}
+
+Para evitar que surgieran errores se tuvo que implementar un método que eliminase estos caracteres te control o los escapase tal y como se muestra en el algoritmo \ref{lst:escaping_control_characters}
+
+\lstinputlisting[language=Python, frame=single, label={lst:escaping_control_characters}, caption=Escapado o eliminación de caracteres de control de \acrshort{json}]{content/code/python/escaping_control_characters.py}
