@@ -43,6 +43,26 @@ Por cada petición de recursos que recibe la aplicación, MOAI realiza las consu
 	\label{fig:oai_architecture}
 \end{figure}
 
+MOAI es una aplicación dividida en capas, para este proyecto las capas que se han utilizado son las siguientes:
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.5]{fig/architecture/moai_layers}
+	\caption{Capas de MOAI}
+	\label{fig:moai_layers}
+\end{figure}
+
+\begin{itemize}
+	\item {Capa de \acrshort{wsgi}:} Capa que implementa la interfaz \acrshort{wsgi} para la redirección del trafico.
+	\item {Capa servidora:} Capa que gestiona los permisos de descargas de los recursos y parsea las \acrshortpl{url}.
+	\item {Capa \acrshort{oai}:} Capa que implementa cada uno de los comandos de lo que se compone el protocolo \acrshort{oaipmh}.
+	\item {Capa de \acrshort{bd}:} Capa que se conecta a la base de datos y gestiona todas las consultas a ésta.
+\end{itemize}
+
+De todas estas capas, ha sido la capa de base de datos la que ha sido modificada para adaptarlo al repositorio de \acrshort{labman}. Por defecto MOAI crea y se conecta a una base de datos SQLite que dispone de tres tablas: Los recursos, los \textit{sets} y por último una tabla de relación de N a M entre éstas dos.
+
+Para adaptar la esta capa de datos al repositorio, se ha tenido definir las dieciocho tablas que se almacenan la información sobre las publicaciones y tesis doctorales, así como las tablas de los \textit{logs} de Django, usando SQLAlchemy. Por último se tuvo que definir los métodos \textit{oai\_sets}, \textit{oai\_earliest\_datestamp} y \textit{oai\_query}. Estas funciones son las llamadas que realiza la capa \acrshort{oai} a la capa de \acrshort{bd} para generas el \acrshort{xml} a partir de la información recolectada a del repositorio.
+
 \section{Diseño del ``mapeo'' de la Base de Datos}
 
 El repositorio de \acrshort{labman} consiste en un conjunto de 120 tablas para almacenar toda la información sobre el grupo de investigación y el propio sistema (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}). Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
