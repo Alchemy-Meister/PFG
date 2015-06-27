@@ -84,3 +84,11 @@ Dado que las tesis doctorales y las publicaciones están relacionadas con distin
 
 Debido a la volatilidad de los \textit{logs} y inneficiencia de buscar en los mismos por cada recurso se ha diseñado para su futura implementación una extensión del modelo de datos donde mediante \textit{triggers} se almacenen las fechas de modificación de los recursos  y así solo tener que hacer una \textit{Select} de la tabla donde se almacene el resultado de la fecha más reciente de las publicaciones.
 Dicha implementación se propone el las lineas futuras de este documento, en la sección \ref{sec:future_lines}
+
+\section{Filtrado de los recursos por facetas}
+
+Para realizar el filtrado, el usuario debe introducir los valores por lo que desea realizar la búsqueda, una vez hecho echo se envía una petición POST al servidor Django para que procese la información el formulario.
+
+Para ello se adquiere uno a uno los todos los campos que componen la búsqueda avanzada y se comprueba que no son vacíos. Sí no lo son, se procede a realizar el filtrado a partir el \acrshort{orm} que dispone Django. Una vez se han filtrado los recursos a partir de las facetas dispuestas por el formulario se devuelve dicha información junto con todos los demás datos necesarios al cliente. En el algoritmo \ref{lst:project_filtering} puede mostrarse un las bases de este proceso.
+
+\lstinputlisting[language=Python, frame=single, label={lst:project_filtering}, caption= Filtrado de publicaciones]{content/code/python/project_filtering.py}
