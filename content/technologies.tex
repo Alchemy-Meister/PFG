@@ -48,7 +48,7 @@ La aplicación web permite validar como descargar la petición resultante a part
 
 \subsection{Razón de uso}
 
-Se ha utilizado esta aplicación web frente a los distintos validadores existentes como Oval\cite{Oval}, principalmente por que ha permitido comprobar la velidez de los \acrshortpl{xml} generados por el proveedor de información, en la etapa de desarrollo en el que el servidor no era público y por tanto no disponía de una \acrshort{url} a la que hacer referencia para realizar dichas comprobaciones.
+Se ha utilizado esta aplicación web frente a los distintos validadores existentes como Oval\cite{Oval}, principalmente por que ha permitido comprobar la validez de los \acrshortpl{xml} generados por el proveedor de información, en la etapa de desarrollo en el que el servidor no era público y por tanto no disponía de una \acrshort{url} a la que hacer referencia para realizar dichas comprobaciones.
 
 \section{SQLAlchemy}
 
@@ -65,13 +65,13 @@ SQLAlchemy\cite{SQLAlchemy} consiste tanto en \acrfull{orm} como en un juego de 
 Se ha utilizado esta \acrshort{api} frente a otras soluciones, como puede ser el \acrshort{orm} de Django, principalmente por las siguientes razones:
 
 \begin{itemize}
-	\item Ofrece un nivel de abstracción mayor manipulando las tablas de la \acrshort{bd} como si de objetos de Python se tratasen.
+	\item Ofrece un nivel de abstracción mayor, manipulando las tablas de la \acrshort{bd} como si de objetos de Python se tratasen.
 	\item Permite escoger el grado de abstracción deseado, pudiendo escoger entre las herramientas \textit{core}, para la manipulación de tablas, o del \acrshort{orm} para gestionar el propio modelo de la \acrshort{bd} como objetos.
 	\item Es uno de los \acrshortpl{orm} más usados, utilizado por organizaciones como Mozilla\cite{Mozilla} o Reddit\cite{Reddit}.
 	\item Ofrece una documentación detallada tanto para el uso de las herramientas \textit{core} como para aquellas relacionadas con el \acrshort{orm} en sí. Además debido a ser una de las herramientas más usadas dispone de una gran comunidad que está dispuesta a ayudar a resolver cualquier problema.
 	\item Soporta desde Python 2.5 hasta las últimas versiones 3.x del mismo.
 	\item SQLAlchemy incluye dialectos para \acrlongpl{bd} como SQLite, PostgreSQL, MySQL, Oracle\cite{Oracle}, MS-SQL\cite{MSSQL}, Firebird\cite{Firebird} y muchas otras por medio de extensiones, por lo que las clases generadas con esta herramienta pueden ser reutilizadas en caso de migración a una de estas \acrshort{bd}.
-	\item Estaba integrado como una dependencia por el servidor de MOAI lo que evitaba los quebraderos de cabeza de tener que instalar otros \acrshortpl{orm}
+	\item Esta integrado como una dependencia por el servidor de MOAI lo que evitaba los quebraderos de cabeza de tener que instalar otros \acrshortpl{orm}
 \end{itemize}
 
 \section{Django}
@@ -90,7 +90,7 @@ Se ha utilizado este entorno de desarrollo frente a otras soluciones, como puede
 
 \begin{itemize}
 	\item Es usado por grandes páginas como Mozilla, The Washington Times\cite{TWT} o Bitbucket\cite{Bitbucket}.
-	\item El \acrshort{orm} de Django es una herramienta para la gestión de las \acrlongpl{bd} extremadamente potente, además de ser es una de las más usadas en la comunidad de Python.
+	\item El \acrshort{orm} de Django es una herramienta para la gestión de las \acrlongpl{bd} extremadamente potente, además de ser una de las más usadas en la comunidad de Python.
 	\item La interfaz de administración es muy potente y personalizable por lo que ahorra mucho tiempo de desarrollo.
 	\item Contiene una serie de extensiones, como Graph models\cite{GraphModel} que ha facilitado el renderizado automatizado de los modelos relacionales que se presentan es este documento a partir de las clases de Python que definen a cada entidad.
 	\item Principalmente por que \acrshort{labman} está desarrollado en esta tecnología y para extenderla se ha tenido que trabajar con ella para no desechar lo que ya estaba hecho.
