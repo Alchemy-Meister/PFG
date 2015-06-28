@@ -26,7 +26,7 @@ El \acrshort{xml} generado por el servidor presenta la siguiente estructura para
 \begin{itemize}
 	\item \textbf{Información sobre la transacción:} El comienzo del \acrshort{xml} siempre está compuesto por atributos \textit{smlns}, \textit{smlns:xsi} y \textit{xsi:schemaLocation} que sirven para definir ``namespace'' y el esquema de \acrshort{oaipmh} del \acrshort{xml}.
 
-	\item \textbf{La petición en cuestión:} En esta parte del \acrshort{xml} trata la información sobre una de las seis posibles peticiones. En el caso del GetRecords (véase algoritmo \ref{lst:oaipmhgetrecord}) por ejemplo, puede observarse que se compone de un elemento ``record'' y en el se subdivide en:
+	\item \textbf{La petición en cuestión:} En esta parte del \acrshort{xml} trata la información sobre una de las seis posibles peticiones. En el caso del GetRecords (véase algoritmo \ref{lst:oaipmhgetrecord}) por ejemplo, puede observarse que se compone de un elemento ``record'' y éste se subdivide en:
 		\begin{itemize}
 			\item Cabecera, en la que se especifica el identificador único, la fecha de creación o última modificación y la lista de ``sets'' a la que pertenece.
 			\item Metadatos, la información misma del registro en cuestión compuesto por atributos tales como \textit{dc:title}, \textit{dc:creator}, \textit{dc:subjet}, y en general cualquiera de los atributos definidos en el set de elementos de \acrshort{dc}\cite{DCElements} o el formato bibliográfico que se haya especificado en la consulta.

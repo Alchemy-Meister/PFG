@@ -11,7 +11,7 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 
 	\item Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas y bibliotecarias, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
 
-	\item Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar un petición GET o POST con uno de los seis verbos que establece el protocolo \acrshort{oaipmh}, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
+	\item Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar una petición GET o POST con uno de los seis verbos que establece el protocolo \acrshort{oaipmh}, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
 \end{itemize}
 
 \subsubsection{Debilidades}
@@ -136,7 +136,7 @@ Con el fin de aclarar los anteriores puntos sobre \acrshort{sql} presenta el sig
 \subsubsection{Debilidades}
 
 \begin{itemize}
-	\item Por lo general, las consultas en \acrshort{sparql}, de no usar estrategias el cacheo de consultas\cite{SPARQL_Performance}, son muy lentas.
+	\item Por lo general, las consultas en \acrshort{sparql}, de no usar estrategias de cacheo\cite{SPARQL_Performance}, son muy lentas.
 
 	\item Al ser una tecnología joven, no son muchos los que hacen uso de esa tecnología, es por eso que aún no haya muchos repositorios de datos que puedan recolectarse por medio de consultas \acrshort{sparql} comparado al basto despliegue de otras tecnologías veteranas como \acrshort{sql} o \acrshort{xpath}\cite{XPath}.
 
@@ -183,10 +183,10 @@ Con el fin de aclarar los anteriores puntos sobre \acrshort{sparql} presenta el 
 
 \subsection{Conclusiones}
 
-\acrshort{sql} a es una tecnología extendida y asentada que ha demostrado ser eficiente capaz de gestionar grandes volúmenes de información en consultas centralizadas. Por otra parte \acrshort{oaipmh} además de fomentar el acceso a las publicaciones digitales, sirve como complemento a esta tecnología permitiendo recolectar información desde distintas fuentes para su adición a una \acrshort{bd}.
+\acrshort{sql} es una tecnología extendida y asentada que ha demostrado ser eficiente capaz de gestionar grandes volúmenes de información en consultas centralizadas. Por otra parte \acrshort{oaipmh} además de fomentar el acceso a las publicaciones digitales, sirve como complemento a esta tecnología permitiendo recolectar información desde distintas fuentes para su adición a una \acrshort{bd}.
 
 Sin embargo, \acrshort{sparql}, va más allá permitiendo gestionar la información en múltiples \acrlongpl{bd} distribuidas en una única consulta, evitado la redundancia de datos, los potenciales quebraderos de cabeza de realizar \textit{joins} consecutivas y la necesidad de tener que disponer de toda la información en un único sistema.
 
 Es por ello que debido al menor rendimiento de \acrshort{sparql} respecto a \acrshort{sql}, \acrshort{labman} prioriza el rendimiento de la plataforma web haciendo uso de una base de datos relacional PostgreSQL\cite{PostgreSQL} para gestionar la información de las publicaciones y los proyectos. Por otra parte, cabe destacar que cada vez que se guarda una instancia en el modelo relacional, por medio de un \textit{trigger} se genera las tripletas de ese mismo recurso y se almacenan en un \textit{triple-store} Virtuoso\cite{Virtuoso}. El objetivo de este servidor es generar una copia semántica de la información almacenada en la \acrshort{bd} relacional, permitiendo así preparar una futura migración  de los ya \textit{legacy} \acrfullpl{dbms} relacionales a el que se cree que es la tecnología del futuro para la gestión de la información, las \acrshortpl{bd} semánticas. Además, este servidor permite realizar consultas complejas \acrshort{sparql} beneficiosos para la generación los gráficos sobre la información financiera de los proyectos en los que toma parte el grupo de investigación.
 
-Como conclusión, además de facilitar la transición tecnológica a las \acrshortpl{bd} semánticas, el verdadero objetivo de este proyecto es poder facilitar la información para ser explotada de la forma más eficiente posible. Es por eso que se ve la necesidad de implantar una \acrfull{api} \acrshort{oaipmh} para que los muchos sistemas que aún hoy en día hacen uso de esta tecnología para la recolección de datos de y su posterior gestión centralizada.
+Como conclusión, además de facilitar la transición tecnológica a las \acrshortpl{bd} semánticas, el verdadero objetivo de este proyecto es poder facilitar la información para ser explotada de la forma más eficiente posible. Es por eso que se ve la necesidad de implantar una \acrfull{api} \acrshort{oaipmh} para que los muchos sistemas que aún hoy en día hacen uso de esta tecnología para la recolección de datos y de su posterior gestión centralizada.
