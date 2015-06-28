@@ -15,7 +15,7 @@ Este capítulo tiene como objetivo describir la labor de diseño realizada para 
 
 Las herramientas que se han utilizado a la hora de diseñar el proyecto son:
 
-\subsection{Django-extensions, Graph Models}
+\subsection{Django-extensions, Graph models}
 
 Graph Models es una herramienta para la generación de grafos del modelo relacional a partir de los ficheros \textit{model.py} donde se especifican las clases que conforman el diseño modelo relacional de la aplicación web. Entre algunas de sus características, permite especificar el nombre de varias aplicaciones para combinarlas en un único modelo, incluir herencias, la exclusión de modelos o columnas y modificar la plantilla con la que renderizar el grafo.
 
@@ -63,7 +63,7 @@ De todas estas capas, ha sido la capa de base de datos la que ha sido modificada
 
 Para adaptar la esta capa de datos al repositorio, se ha tenido definir las dieciocho tablas que se almacenan la información sobre las publicaciones y tesis doctorales, así como las tablas de los \textit{logs} de Django, usando SQLAlchemy. Por último se tuvo que definir los métodos \textit{oai\_sets}, \textit{oai\_earliest\_datestamp} y \textit{oai\_query}. Estas funciones son las llamadas que realiza la capa \acrshort{oai} a la capa de \acrshort{bd} para generas el \acrshort{xml} a partir de la información recolectada a del repositorio.
 
-\section{Diseño del ``mapeo'' de la Base de Datos}
+\section{Diseño del ``mapeo'' de la Base de datos}
 
 El repositorio de \acrshort{labman} consiste en un conjunto de 120 tablas para almacenar toda la información sobre el grupo de investigación y el propio sistema (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}). Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
 
