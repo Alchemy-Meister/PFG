@@ -162,3 +162,13 @@ Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}
 	\label{fig:projectsmodel}
 \end{figure}
 
+Al extender un proyecto en producción como lo es \acrshort{labman} el diseño del modelo de datos ha sido nulo, dado que ya había sido todo implementado por su creador Oscar Peña. Sin embargo, ha sido necesario hacer uso de la implementación para poder mejorar la usabilidad del portal web e implementar el buscador avanzado.
+
+A partir del diseño de la interfaz de usuario (Vista) se recogen los valores de las facetas por las que se quiere filtrar los recursos sobre los proyectos o publicaciones a través de peticiones POST. Es entonces cuando el controlador verifica la validez del formulario y realiza las consultas a la \acrshort{bd} (Modelo) a través del \acrshort{orm} de Django. Mediante estas consultas se obtienen los datos requeridos por el usuario, así como valores extra que requiere la vista para actualizarse correctamente. El controlador devuelve estos valores a la vista para que el usuario pueda visualizar la vista. Este proceso se detalla mejor en la figura \ref{fig:project_flow_diagram} que representa un diagrama de flujo del proceso simplificado del filtrado de los proyectos que se produce en el controlador.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[scale=0.6]{fig/flow}
+	\caption{Diagrama de flujo simplificado del proceso de filtrado de proyectos}
+	\label{fig:project_flow_diagram}
+\end{figure}
