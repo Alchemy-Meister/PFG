@@ -1,9 +1,9 @@
 def get_pubmodified_date(self, record):
       
       # Comienza el método creando un array bidimensional donde se almacenarán
-      # todas las IDs de las tablas que está relacionada la publicación, siendo
-      # estas: Publication, Language, Tag, La tabla del tipo de publicación 
-      # y Person.
+      # todas las IDs de las tablas que están relacionada con la publicación,
+      # siendo estas: Publication, Language, Tag, La tabla del tipo de 
+      # publicación y Person.
       
       ids = [[] for i in xrange(5)]
       # Se almacena el ID de la publicación.
@@ -27,7 +27,7 @@ def get_pubmodified_date(self, record):
       for tag in tags:
         ids[4].append(tag.tag_id)
       
-      # Se definen las tablas en la que se va a realizar la búsqueda.
+      # Se definen las tablas en las que se va a realizar la búsqueda.
       tables = []
       tables.append(self.table_names.get('publication'))
       tables.append('publications_' + record.child_type.lower())
@@ -48,7 +48,7 @@ def get_pubmodified_date(self, record):
           tables[index]), self.get_model_id(tables[index]))
         if content_type is not None:
           for j_index in range(len(ids[index])):
-            # Añade una condición para que busque los el ID que Django otorga
+            # Añade una condición para que busque el ID que Django otorga
             # a la tabla y el propio ID del recurso relacionado con la
             # publicación.
             where_clauses.append(sql.and_(

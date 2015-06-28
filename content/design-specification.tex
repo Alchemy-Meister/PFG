@@ -32,9 +32,9 @@ Para este proyecto, solo se han usado sus capacidades para renderizar los siguie
 
 La arquitectura del servidor \acrshort{oaipmh} (ver figura \ref{fig:oai_architecture}) se basa en un modelo cliente servidor que gira en torno a una base de datos PostgreSQL.
 
-La aplicación MOAI al ser una aplicación WSGI de uso local, requiere de un servidor \acrshort{http}, que redirija el trafico de las peticiones externas de la \acrshort{url} del servidor a la aplicación local.
+La aplicación MOAI al ser una aplicación WSGI de uso local, requiere de un servidor \acrshort{http}, que redirija el tráfico de las peticiones externas de la \acrshort{url} del servidor a la aplicación local.
 
-Por cada petición de recursos que recibe la aplicación, MOAI realiza las consultas a la \acrshort{bd} PostgreSQL necesarias para obtener la información de los recursos en cuestión. Tras esto se realiza un procesamiento de las consultas a \acrfull{json}\cite{JSON} para posteriormente convertir los datos resultantes en el documento \acrshort{xml} final que se envía al cliente a través del servidor \acrshort{http} NGINX\cite{NGINX}.
+Por cada petición de recursos que recibe la aplicación, MOAI realiza las consultas a la \acrshort{bd} PostgreSQL necesarias para obtener la información de los recursos en cuestión. Tras ésto se realiza un procesamiento de las consultas a \acrfull{json}\cite{JSON} para posteriormente convertir los datos resultantes en el documento \acrshort{xml} final que se envía al cliente a través del servidor \acrshort{http} NGINX\cite{NGINX}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -53,7 +53,7 @@ MOAI es una aplicación dividida en capas, para este proyecto las capas que se h
 \end{figure}
 
 \begin{itemize}
-	\item {Capa de \acrshort{wsgi}:} Capa que implementa la interfaz \acrshort{wsgi} para la redirección del trafico.
+	\item {Capa de \acrshort{wsgi}:} Capa que implementa la interfaz \acrshort{wsgi} para la redirección del tráfico.
 	\item {Capa servidora:} Capa que gestiona los permisos de descargas de los recursos y parsea las \acrshortpl{url}.
 	\item {Capa \acrshort{oai}:} Capa que implementa cada uno de los comandos de lo que se compone el protocolo \acrshort{oaipmh}.
 	\item {Capa de \acrshort{bd}:} Capa que se conecta a la base de datos y gestiona todas las consultas a ésta.
@@ -61,11 +61,11 @@ MOAI es una aplicación dividida en capas, para este proyecto las capas que se h
 
 De todas estas capas, ha sido la capa de base de datos la que ha sido modificada para adaptarlo al repositorio de \acrshort{labman}. Por defecto MOAI crea y se conecta a una base de datos SQLite que dispone de tres tablas: Los recursos, los \textit{sets} y por último una tabla de relación de N a M entre éstas dos.
 
-Para adaptar la esta capa de datos al repositorio, se ha tenido definir las dieciocho tablas que se almacenan la información sobre las publicaciones y tesis doctorales, así como las tablas de los \textit{logs} de Django, usando SQLAlchemy. Por último se tuvo que definir los métodos \textit{oai\_sets}, \textit{oai\_earliest\_datestamp} y \textit{oai\_query}. Estas funciones son las llamadas que realiza la capa \acrshort{oai} a la capa de \acrshort{bd} para generas el \acrshort{xml} a partir de la información recolectada a del repositorio.
+Para adaptar esta capa de datos al repositorio, se ha tenido que definir las dieciocho tablas que almacenan la información sobre las publicaciones y tesis doctorales, así como las tablas de los \textit{logs} de Django, usando SQLAlchemy. Por último se tuvo que definir los métodos \textit{oai\_sets}, \textit{oai\_earliest\_datestamp} y \textit{oai\_query}. Estas funciones son las llamadas que realiza la capa \acrshort{oai} a la capa de \acrshort{bd} para generar el \acrshort{xml} a partir de la información recolectada del repositorio.
 
 \section{Diseño del ``mapeo'' de la Base de datos}
 
-El repositorio de \acrshort{labman} consiste en un conjunto de 120 tablas para almacenar toda la información sobre el grupo de investigación y el propio sistema (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}). Se realizó dicho grafo para tener una visión general de las relaciones de internas del modelo relacional.
+El repositorio de \acrshort{labman} consiste en un conjunto de 120 tablas para almacenar toda la información sobre el grupo de investigación y el propio sistema (véase la figura \ref{fig:labmanmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/labman\_ud\_models.png}}). Se realizó dicho grafo para tener una visión general de las relaciones internas del modelo relacional.
 
 Sabiendo que dicho servidor OAI iba a publicar solo la información de las publicaciones de los grupos de investigación, se pudo simplificar el modelo relacional completo y a veces incomprensible, debido a el solapamiento de las lineas que simbolizan relaciones, por uno simplificado y dedicado a las publicaciones (véase la figura \ref{fig:publicationsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/publications.png}}), lo cual simplificó la tarea del ``mapeo'', dado que la mayoría de la información podía adquirirse desde dicho grafo a excepción de las relaciones externas a las publicaciones, como pueden ser las entidades \textit{Person}, \textit{Tags} y \textit{Languages}. Para visualizar los atributos de éstas últimas se tuvo que seguir haciendo uso del diagrama completo.
 
@@ -93,7 +93,7 @@ Para el desarrollo del servidor se hizo uso de la documentación que proveía la
 	\item \textbf{date:} Punto temporal que se asocia con un evento del ciclo de vida del recurso.
 	\item \textbf{relation:} Un recurso relacionado.
 	\item \textbf{coverage:} La jurisdicción bajo la que un recurso es relevante.
-	\item \textbf{rights:} Los derechos propiedad intelectual a los que se ve asociado el recurso.
+	\item \textbf{rights:} Los derechos de propiedad intelectual a los que se ve asociado el recurso.
 \end{itemize}
 
 Esta lista de términos junto con sus definiciones fue necesaria para buscar los campos en la \acrshort{bd} que hacían referencia a estos términos.
@@ -146,7 +146,7 @@ El cliente web ha sido diseñado usando los elementos proporcionados por Django 
 
 Al igual que con el servidor de MOAI, el diseño de la \acrshort{bd} ya venía preestablecido, pero se ha requerido hacer un estudio de las entidades del modelo de datos relacionados con las publicaciones, como ya se ha podido ver en la figura \ref{fig:publicationsmodel}, así como el modelo de proyectos (véase la figura \ref{fig:projectsmodel}\footnote{Modelo de datos en alta resolución accesible desde \url{https://raw.githubusercontent.com/Alchemy-Meister/PFG/master/fig/dbmodel/high\%20quality/projects.png}}), para realizar el filtrado de la información a partir de un subconjunto de sus facetas.
 
-Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}) en la que el usuario interactua con el controlador actualizando la vista para introducir los valores en las facetas sobre las que desea filtrar la información y al realizar comenzar la búsqueda, el controlador consulta el modelo, obtiene la información requerida por el usuario y actualiza la vista.
+Django se basa en la arquitectura \acrshort{mvc} (véase la figura \ref{fig:mvc}) en la que el usuario interactua con el controlador actualizando la vista para introducir los valores en las facetas sobre las que desea filtrar la información y al realizar la búsqueda, el controlador consulta el modelo, obtiene la información requerida por el usuario y actualiza la vista.
 
 \begin{figure}[!htbp]
 	\centering

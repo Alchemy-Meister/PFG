@@ -92,6 +92,6 @@ return_dict = {
     ...
 }
 
-#Se renderiza la pantalla de resultado de la búsqueda con los resultado devuelto
-# en el diccionario.
+#Se renderiza la pantalla de resultado de la búsqueda con los resultados 
+# devueltos en el diccionario.
 return render(request, "projects/index.html", return_dict)
