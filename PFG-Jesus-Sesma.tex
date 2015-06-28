@@ -4,7 +4,10 @@
 \usepackage{eurosym}
 \usepackage{color}
 \usepackage{placeins}
+\usepackage{tikz}
 \usepackage[toc, acronym, nomain]{glossaries}
+
+\usetikzlibrary{matrix}
 
 \setlength{\headheight}{12.22504pt}
 
@@ -12,6 +15,22 @@
   pdfauthor={Jesus María Sesma Solance},
   pdftitle={Gesti\'on de repositorios sem\'anticos compatibles con el est\'andar OAI-PMH},
 }
+
+\colorlet{helpful}{lime!70}
+\colorlet{harmful}{red!30}
+\colorlet{internal}{yellow!20}
+\colorlet{external}{cyan!30}
+\colorlet{F}{helpful!50!internal}
+\colorlet{D}{harmful!50!internal}
+\colorlet{O}{helpful!50!external}
+\colorlet{A}{harmful!50!external}
+
+\newcommand{\texta}{Beneficioso\par}
+\newcommand{\textb}{Dañino\par}
+\newcommand{\textcn}{Origen interno\par}
+\newcommand{\textdn}{Origen externo\par}
+
+\newcommand{\back}[1]{\fontsize{60}{70}\selectfont #1}
 
 \bibliography{bibliografia}
 \makeglossaries

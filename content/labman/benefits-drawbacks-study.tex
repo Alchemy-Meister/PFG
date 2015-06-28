@@ -9,7 +9,7 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 \begin{itemize}
 	\item El protocolo se basa en realizar peticiones \acrshort{http} por lo que no hay que configurar ningún puerto en concreto para hacerlo funcionar.
 
-	\item Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
+	\item Al ser un protocolo arraigado en la industria, publicaciones académicas y en las comunidades científicas y bibliotecarias, convirtiéndose en gigantes ``bibliotecas digitales'', hace que este medio sea perfecto para indexar y explotar grandes volúmenes de información actualizada publicada por estos repositorios.
 
 	\item Las peticiones son sencillas de realizar y no requiere conocimiento alguno de ningún lenguaje de programación. Tan solo de saber estructurar un petición GET o POST con uno de los seis verbos que establece el protocolo \acrshort{oaipmh}, así como definir el formato de los metadatos en los que se desea que se genere la respuesta.
 \end{itemize}
@@ -17,12 +17,48 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 \subsubsection{Debilidades}
 
 \begin{itemize}
-	\item Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de denegación de servicios. Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas consultas en segundo plano.
+	\item Al ser un protocolo que gestiona vastas cantidades de información, la gran demanda de los proveedores de servicios podría provocar que las peticiones de estos se conviertan en un ataque de Denegación de Servicios (\acrshort{dos}). Lo que hace que factores como el balanceo de carga, el control de flujo y las redirecciones a servidores secundarios o de ``backup'' sea  esencial por parte de los repositorios. Así mismo es sumamente importante que los clientes no bombardeen a el servidor en caso de encontrarse en situaciones de error y se aconseja que se sigan buenas prácticas a la hora de configurar a los ``robots'' que realizan estas consultas en segundo plano.
 
 	\item El protocolo carece de filtros avanzados para realizar búsquedas. Al ser un protocolo que promueve la preservación de datos digitales, no ha sido diseñado un sistema de búsquedas o filtros avanzados, tan solo permite filtrar por los ``sets'' definidos por el propio repositorio, por fecha inicio y fecha de fin buscando por un identificador en concreto. La responsabilidad de implementar un sistema de búsquedas recae por tanto a el proveedor de servicios y su extracción dependerá del sistema de almacenamiento de la información utilizado por el cliente de \acrshort{oaipmh}.
 
 	\item El rendimiento es dependiente de la implementación del servidor. El proveedor de datos puede recopilar la información de múltiples fuentes, pudiendo optar cualquier tipo de sistema de almacenamiento como ficheros \acrshort{xml}, texto plano, NoSQL\cite{NoSQL}, \acrlongpl{bd} relacionales, entre muchos otros. Esto implica que el rendimiento estará sujeto al tiempo de acceso, filtrado de la información y al tiempo de generación de la respuesta \acrshort{xml} del servidor \acrshort{oaipmh}.
 \end{itemize}
+
+Con el fin de aclarar los anteriores puntos sobre \acrshort{oaipmh} presenta el siguiente diagrama \acrfull{dafo}.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+    any/.style={minimum width=5cm,minimum height=5cm,%
+                 text width=4.5cm,align=center,outer sep=0pt},
+    header/.style={any,minimum height=1cm,fill=black!10},
+    leftcol/.style={header,rotate=90},
+    mycolor/.style={fill=#1, text=#1!60!black}
+]
+
+\matrix (SWOT) [matrix of nodes,nodes={any,anchor=center},%
+                column sep=-\pgflinewidth,%
+                row sep=-\pgflinewidth,%
+                row 1/.style={nodes=header},%
+                column 1/.style={nodes=leftcol},
+                inner sep=0pt]
+{
+          &|[fill=helpful]| {\texta} & |[fill=harmful]| {\textb} \\
+|[fill=internal]| {\textcn} & |[mycolor=F]| \back{F} & |[mycolor=D]| \back{D} \\
+|[fill=external]| {\textdn} & |[mycolor=O]| \back{O} & |[mycolor=A]| \back{A} \\
+};
+
+\node[any, anchor=center] at (SWOT-2-2) {Fácil de Configurar\\ Peticiones \acrshort{http} sencillas};
+\node[any, anchor=center] at (SWOT-2-3) {Carece de filtros avanzados para realizar búsquedas};
+\node[any, anchor=center] at (SWOT-3-2) {Extendido y usado en las comunidades bibliotecarias};
+\node[any, anchor=center] at (SWOT-3-3) {Una mala configuración en los clientes puede implicar un \acrshort{dos}\\ El rendimiento es dependiente de la implementación del servidor};
+
+
+\end{tikzpicture}
+\caption{\acrshort{dafo} de \acrshort{oaipmh}}
+\end{figure}
+
+\FloatBarrier
 
 \subsection{SQL}
 
@@ -45,6 +81,41 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 
 	\item Realizar consultas a una tabla es meramente intuitivo, pero a medida que se añaden condiciones, filtros, funciones, \textit{inner queries} y \textit{joins} con otras tablas la dificultad aumenta, haciendo el lenguaje difícil, para consultas avanzadas.
 \end{itemize}
+
+Con el fin de aclarar los anteriores puntos sobre \acrshort{sql} presenta el siguiente diagrama \acrfull{dafo}.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+    any/.style={minimum width=5cm,minimum height=5cm,%
+                 text width=4.5cm,align=center,outer sep=0pt},
+    header/.style={any,minimum height=1cm,fill=black!10},
+    leftcol/.style={header,rotate=90},
+    mycolor/.style={fill=#1, text=#1!60!black}
+]
+
+\matrix (SWOT) [matrix of nodes,nodes={any,anchor=center},%
+                column sep=-\pgflinewidth,%
+                row sep=-\pgflinewidth,%
+                row 1/.style={nodes=header},%
+                column 1/.style={nodes=leftcol},
+                inner sep=0pt]
+{
+          &|[fill=helpful]| {\texta} & |[fill=harmful]| {\textb} \\
+|[fill=internal]| {\textcn} & |[mycolor=F]| \back{F} & |[mycolor=D]| \back{D} \\
+|[fill=external]| {\textdn} & |[mycolor=O]| \back{O} & |[mycolor=A]| \back{A} \\
+};
+
+\node[any, anchor=center] at (SWOT-2-2) {Alto rendimiento\\ Es posible reutilizar código para distintas \acrshortpl{bd}};
+\node[any, anchor=center] at (SWOT-2-3) {El lenguaje es difícil para consultas avanzadas\\ };
+\node[any, anchor=center] at (SWOT-3-2) {Permite el almacenamiento de objetos\\ Es capaz de realizar consultas complejas};
+\node[any, anchor=center] at (SWOT-3-3) {\acrshortpl{bd} con funcionalidades exclusivas para asegurar la permanencia};
+
+\FloatBarrier
+
+\end{tikzpicture}
+\caption{\acrshort{dafo} de \acrshort{sql}}
+\end{figure}
 
 \subsection{SPARQL}
 
@@ -74,6 +145,42 @@ Habiendo introducido anteriormente las tecnologías que dispone \acrshort{labman
 	\item Es una tecnología inmadura en la que se hace notar la ausencia de procesamiento explícito como el de \acrshort{xquery} o la optimización del ya veterano \acrshort{sql}.
 \end{itemize}
 
+Con el fin de aclarar los anteriores puntos sobre \acrshort{sparql} presenta el siguiente diagrama \acrfull{dafo}.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+    any/.style={minimum width=5cm,minimum height=5cm,%
+                 text width=4.5cm,align=center,outer sep=0pt},
+    header/.style={any,minimum height=1cm,fill=black!10},
+    leftcol/.style={header,rotate=90},
+    mycolor/.style={fill=#1, text=#1!60!black}
+]
+
+\matrix (SWOT) [matrix of nodes,nodes={any,anchor=center},%
+                column sep=-\pgflinewidth,%
+                row sep=-\pgflinewidth,%
+                row 1/.style={nodes=header},%
+                column 1/.style={nodes=leftcol},
+                inner sep=0pt]
+{
+          &|[fill=helpful]| {\texta} & |[fill=harmful]| {\textb} \\
+|[fill=internal]| {\textcn} & |[mycolor=F]| \back{F} & |[mycolor=D]| \back{D} \\
+|[fill=external]| {\textdn} & |[mycolor=O]| \back{O} & |[mycolor=A]| \back{A} \\
+};
+
+\node[any, anchor=center] at (SWOT-2-2) {Lenguaje apropiado para realizar búsquedas en fuentes de información dispares \\ Soporta consultas en un entorno web};
+\node[any, anchor=center] at (SWOT-2-3) {Consultas lentas si no se cachean \\ No da soporte a las consultas jerárquicas o transitivas};
+\node[any, anchor=center] at (SWOT-3-2) {Herramientas para realizar consultas en contenido no almacenado en \acrshort{rdf} \\ Permite descubrir fuentes que almacenan información relacionada con la consulta solicitada};
+\node[any, anchor=center] at (SWOT-3-3) {Tecnología joven en bajo despliegue si se compara con \acrshort{sql} \\ Ausencia de procesamiento explícito};
+
+
+\end{tikzpicture}
+\caption{\acrshort{dafo} de \acrshort{sparql}}
+\end{figure}
+
+\FloatBarrier
+
 \subsection{Conclusiones}
 
 \acrshort{sql} a es una tecnología extendida y asentada que ha demostrado ser eficiente capaz de gestionar grandes volúmenes de información en consultas centralizadas. Por otra parte \acrshort{oaipmh} además de fomentar el acceso a las publicaciones digitales, sirve como complemento a esta tecnología permitiendo recolectar información desde distintas fuentes para su adición a una \acrshort{bd}.
@@ -82,4 +189,4 @@ Sin embargo, \acrshort{sparql}, va más allá permitiendo gestionar la informaci
 
 Es por ello que debido al menor rendimiento de \acrshort{sparql} respecto a \acrshort{sql}, \acrshort{labman} prioriza el rendimiento de la plataforma web haciendo uso de una base de datos relacional PostgreSQL\cite{PostgreSQL} para gestionar la información de las publicaciones y los proyectos. Por otra parte, cabe destacar que cada vez que se guarda una instancia en el modelo relacional, por medio de un \textit{trigger} se genera las tripletas de ese mismo recurso y se almacenan en un \textit{triple-store} Virtuoso\cite{Virtuoso}. El objetivo de este servidor es generar una copia semántica de la información almacenada en la \acrshort{bd} relacional, permitiendo así preparar una futura migración  de los ya \textit{legacy} \acrfullpl{dbms} relacionales a el que se cree que es la tecnología del futuro para la gestión de la información, las \acrshortpl{bd} semánticas. Además, este servidor permite realizar consultas complejas \acrshort{sparql} beneficiosos para la generación los gráficos sobre la información financiera de los proyectos en los que toma parte el grupo de investigación.
 
- Como conclusión, además de facilitar la transición tecnológica a las \acrshortpl{bd} semánticas, el verdadero objetivo de este proyecto es poder facilitar la información para ser explotada de la forma más eficiente posible. Es por eso que se ve la necesidad de implantar una \acrfull{api} \acrshort{oaipmh} para que los muchos sistemas que aún hoy en día hacen uso de esta tecnología para la recolección de datos de y su posterior gestión centralizada.
+Como conclusión, además de facilitar la transición tecnológica a las \acrshortpl{bd} semánticas, el verdadero objetivo de este proyecto es poder facilitar la información para ser explotada de la forma más eficiente posible. Es por eso que se ve la necesidad de implantar una \acrfull{api} \acrshort{oaipmh} para que los muchos sistemas que aún hoy en día hacen uso de esta tecnología para la recolección de datos de y su posterior gestión centralizada.
