@@ -40,11 +40,12 @@ Es necesario destacar lo mucho que se ha aprendido del desarrollo de aplicacione
 
 En conclusión, el desarrollo y estudio de este proyecto no ha resultado fácil, aunque se ha aprendido mucho con el uso de estas tecnologías, además del contexto relacionado al campo de la investigación académica que seguro que resultará de utilidad en futuros proyectos.
 
-\section{Líneas Futuras}\label{sec:future_lines}
+\section{Líneas futuras}\label{sec:future_lines}
 
 Existen diversas funcionalidades que se podrían añadir al proyecto en un futuro y que aumentarían la calidad de este de una forma considerable:
 
 \begin{itemize}
 	\item Se debería modificar el modelo de datos relacional del repositorio de \acrshort{labman}, que permita almacenar la fecha de creación o modificación de los recursos. El protocolo de \acrshort{oaipmh} requiere conocer dicha fecha para mostrar los recursos delimitados por los parámetros \textit{from} y \textit{to} en las consultas \textit{ListIdefitiers} y \textit{ListRecords}. Esto aumentaría la eficiencia y el tiempo de respuesta del servidor evitando la ardua tarea que consultar los \textit{logs} de administración de Django en busca de cambios para actualizar la última fecha de modificación por cada uno de los recursos del dispuestos por el servidor \acrshort{oaipmh}.
 	\item En el cliente web, se podría añadir la funcionalidad para que la tabla que contiene el resultado de las consultas pudiera reorganizar las columnas, posibilitar el cambio del orden ascendente o descendente en las mismas, etc. Todo esto de la forma más eficiente posible mediante la definición de un sistema de cacheo de los recursos, reduciendo tiempo de generación de la respuesta y la cantidad de datos web consumidos.
+	\item Por otra parte, el cliente web debería permitir filtrar por más facetas de las publicaciones o los proyectos, mejorando la experiencia de usuario mediante sistemas de autocompletado para los campos que requieran cumplimentar valores manuales.
 \end{itemize}
